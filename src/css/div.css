@@ -1,3 +1,10 @@
+/* BEGIN Table */
+
+div.Table {
+    padding: 5rem;
+}
+
+/* END Table */
 /* BEGIN Asktable */
 
 div.Asktable {
@@ -40,7 +47,6 @@ div.Asktable > div.Ask.active > div.Socket {
 }
 
 /* END Asktable */
-
 /* BEGIN Askstatus */
 
 div.Askstatus {
@@ -91,3 +97,33 @@ div.Askstatus > div.Ask.active > div.Socket {
 }
 
 /* END Askstatus */
+/* BEGIN Formtable */
+
+div.Formtable {
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    position: absolute;
+    left:0;
+    top:0;
+    width: 100%;
+    height: 2.5rem;
+    background-color: rgb(202, 202, 202);
+}
+
+/* END Formtable */
+/* BEGIN Statustable */
+
+div.Statustable {
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    position: absolute;
+    left:0;
+    bottom:0;
+    width: 100%;
+    height: 2.5rem;
+    background-color: rgb(202, 202, 202);
+}
+
+/* END Statustable */
