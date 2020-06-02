@@ -11,9 +11,9 @@ function Statustable(props) {
     return (
         <div className="Statustable">
             <span className="status0 border0" onClick={() => toggleHistory()}>History</span>
-            <span className="status0">+ Mobile Friendly</span>
-            <span className="status0">+ Redux</span>
-            <span className="status0">+ Jest</span>
+            <span className="status0 hidden1024">+ Mobile Friendly</span>
+            <span className="status0 hidden1024">+ Redux</span>
+            <span className="status0 hidden1024">+ Jest</span>
             <span className="status0">Follow instructions</span>            
         </div>
     );

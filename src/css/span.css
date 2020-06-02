@@ -68,3 +68,21 @@ span.border0 {
     border:.075rem solid rgba(255,255,255,.34);
     border-radius: .5rem;
 }
+
+span.useraction {
+    display: flex;
+    min-height: 4rem;
+    justify-content: center;
+    align-items: center;
+
+}
+
+span.useraction .a{
+    color:rgba(255,255,255,.34);
+}
+@media only screen and (max-width: 1024px) {
+    span.hidden1024 {
+        display: none;
+    }
+}
+

@@ -7,38 +7,37 @@ function Tablehistory(props) {
     let isTurn = true;
 
 
-    const returnMsg = (Turn, Secret, Countchecked) => {
+    const returnMsg = ({ Codemakerformtoggled,
+        Codebreakerformtoggled,
+        CodemakerTarget,
+        CodebreakerTarget,
+        isPlayer1turn,
+        Turn,
+        Countchecked,
+        Secret }) => {
+
         if (Turn === -1) {
             if (Secret.length === 0) {
                 return `Welcome :D here will appear all plays you make`
             } else {
-                return `Player ${(Turn % 2 == 0) ? "1" : "2"} has tapped his secretcode color [${Countchecked}]`
+                return <span><span className="a">Player {(Turn % 2 == 0) ? "1" : "2"}</span> has tapped his secretcode color [{Countchecked}]</span>
             }
-            
+
         } else {
-            if (Countchecked === 0)
-            {
-                return `Now games is ready player 1 must choose his 4 colors`
+            if (Countchecked === 0) {
+                if (Codebreakerformtoggled || Codemakerformtoggled) {
+                    return (Turn % 2 == 0) ? `Codemaker(Player 1) opened his Colors form` : `Codebreaker(Player 2) opened his Colors form`
+                }
+
             } else {
-                return `Player ${(Turn % 2 == 0) ? "1" : "2"} has choosen color [${Countchecked}]`
+                return <span><span className="a">Player {(Turn % 2 == 0) ? "1" : "2"}</span> has choosen color [{Countchecked}]</span>
             }
-            
+
         }
     }
     const returnHistory = (table) => {
-
         return table.map(e => {
-            const {
-                Codemakerformtoggled,
-                Codebreakerformtoggled,
-                CodemakerTarget,
-                CodebreakerTarget,
-                isPlayer1turn,
-                Turn,
-                Countchecked,
-                Secret
-            } = e;
-            return <span>{returnMsg(Turn,Secret,Countchecked)}</span>
+            return <span className="useraction">{returnMsg(e)}</span>
         })
     }
 

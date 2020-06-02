@@ -312,6 +312,13 @@ div.Tablehistory {
     z-index: 200;
     transition-duration: 367ms;
     transform: translateX(-100%);
+    overflow-y: scroll;
+}
+
+@media only screen and (max-width: 1024px) { 
+    div.Tablehistory { 
+        width: 100vw;
+    }
 }
 
 div.Tablehistory.active {

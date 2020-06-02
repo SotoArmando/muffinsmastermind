@@ -262,7 +262,7 @@ class Table extends React.Component {
                 <div className={"row centered shorten1024 after0 " + ((Turn === -1) ? "inactive" : "")}>
                     <Asktable turn={Turn} toggleCodebreaker={this.toggleCodebreaker} inactive={(Turn === -1)} />
                 </div>
-                <div className={"row centered shorten1024" + ((Turn === -1) ? "inactive" : "")}>
+                <div className={"row centered shorten1024 " + ((Turn === -1) ? "inactive" : "")}>
                     <Askstatus turn={Turn} toggleCodemaker={this.toggleCodemaker} inactive={(Turn === -1)} />
                 </div>
 
