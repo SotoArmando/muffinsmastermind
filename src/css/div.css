@@ -48,6 +48,7 @@ div.Asktable > div.Ask > div.Socket {
     border: 0.075rem solid rgba(255,255,255,.15);
     box-sizing: border-box;
     border-radius: 10rem;
+    
 
 }
 
@@ -55,10 +56,12 @@ div.Asktable > div.Ask.active > div.Socket {
     border: 0.075rem solid rgba(255,255,255,.54);
     /* background-color: rgba(0,0,0,.075); */
     background-image: linear-gradient(rgba(0, 0, 0, 0),rgba(0,0,0,0),rgba(0,0,255,.075));
+
 }
 
 div.Asktable > div.Ask.active > div.Socket:hover {
     border: .12rem solid red;
+  
 }
 
 @media only screen and (max-width: 1024px) {
@@ -79,7 +82,7 @@ div.Askstatus {
     flex-direction: row;
     height: 5rem;
     align-self: center;
-    
+
 }
 
 
@@ -91,7 +94,7 @@ div.Askstatus > div.Ask {
     max-width: 100%;
     border-radius: 1rem;
     margin: .5rem;
-    transition-duration: 357ms;
+
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
@@ -111,14 +114,17 @@ div.Askstatus > div.Ask > div.Socket {
     border-radius: 10rem;
     flex-grow: 1;
     flex-basis: 50%;
+
 }
 
 div.Askstatus > div.Ask.active > div.Socket {
     border: 0.075rem solid rgba(255,255,255,.54);
+    transition-duration: 357ms;
 }
 
 div.Askstatus > div.Ask.active > div.Socket:hover {
     border: .12rem solid red;
+  
 }
 /* END Askstatus */
 /* BEGIN Formtable */

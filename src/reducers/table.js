@@ -1,11 +1,14 @@
 const initialState = [{
+    CodemakerHist: [],
+    CodebreakerHist: [],
     Codemakerformtoggled: false,
     Codebreakerformtoggled: false,
     CodemakerTarget: 0,
     CodebreakerTarget: 0,
     isPlayer1turn: true,
     Turn: -1,
-    Checked: [],
+    Codebreakerchecked: ["","","",""],
+    Codemakerchecked: ["","","",""],
     Secret: [],
 }]
 

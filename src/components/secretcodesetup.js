@@ -6,7 +6,7 @@ function Secretcodesetup(props) {
     const asktimes = 10;
     const active = 0;
     const secretlength = secret.length;
-
+    debugger;
     const returnClosebutton = (secretlength) => {
         if (secretlength === 4) {
             return <span className="Close" onClick={() => { toggleSecretform();beginGame(); }} >Tap here to continue</span>

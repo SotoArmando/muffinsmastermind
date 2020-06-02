@@ -11,7 +11,18 @@ import Tablehistory from './tablehistory';
 class Table extends React.Component {
     constructor(props) {
         super(props)
-        const { Codemakerformtoggled, Codebreakerformtoggled, CodemakerTarget, CodebreakerTarget, isPlayer1turn, Turn, Checked, Secret, PUSH_TABLE } = props;
+        const { CodemakerHist,
+            CodebreakerHist,
+            Codemakerformtoggled,
+            Codebreakerformtoggled,
+            CodemakerTarget,
+            CodebreakerTarget,
+            isPlayer1turn,
+            Turn,
+            Codebreakerchecked,
+            Codemakerchecked,
+            Secret,
+            PUSH_TABLE } = props;
 
         this.state = {
             Codemakerformtoggled: Codemakerformtoggled || false,
@@ -20,7 +31,10 @@ class Table extends React.Component {
             CodebreakerTarget: CodebreakerTarget || 0,
             isPlayer1turn: isPlayer1turn || true,
             Turn: Turn || -1,
-            Checked: Checked || [],
+            CodemakerHist: CodemakerHist || [],
+            CodebreakerHist: CodebreakerHist || [],
+            Codebreakerchecked: Codebreakerchecked || ["", "", "", ""],
+            Codemakerchecked: Codemakerchecked || ["", "", "", ""],
             Secret: Secret || [],
         }
 
@@ -38,28 +52,19 @@ class Table extends React.Component {
 
     toggleCodebreaker = (num, color) => {
         document.querySelector("div.Ansform").classList.toggle('active')
-        const { Codemakerformtoggled,
+        const {
             Codebreakerformtoggled,
-            CodemakerTarget,
             CodebreakerTarget,
-            isPlayer1turn,
-            Turn,
-            Checked,
-            Secret } = this.props;
+        } = this.state;
 
         if (Codebreakerformtoggled) {
             this.rollCodebreakerturn(CodebreakerTarget, color)
         }
         else {
-            this.PUSH_TABLE({
+            this.setState({
+                ...this.state,
                 Codebreakerformtoggled: !Codebreakerformtoggled,
                 CodebreakerTarget: num,
-                Codemakerformtoggled,
-                CodemakerTarget,
-                isPlayer1turn,
-                Checked,
-                Turn,
-                Secret
             })
         }
 
@@ -67,20 +72,19 @@ class Table extends React.Component {
 
     toggleCodemaker = (num, color) => {
         document.querySelector("div.Askform").classList.toggle('active')
-        const { Codemakerformtoggled, Codebreakerformtoggled, CodemakerTarget, CodebreakerTarget, isPlayer1turn, Turn, Checked, Secret } = this.props;
+        const {
+            Codemakerformtoggled,
+            CodemakerTarget,
+        } = this.state;
+
         if (Codemakerformtoggled) {
             this.rollCodemakerturn(CodemakerTarget, color)
         }
         else {
-            this.PUSH_TABLE({
+            this.setState({
+                ...this.state,
                 Codemakerformtoggled: !Codemakerformtoggled,
                 CodemakerTarget: num,
-                Codebreakerformtoggled,
-                CodebreakerTarget,
-                isPlayer1turn,
-                Checked,
-                Turn,
-                Secret
             })
         }
 
@@ -89,35 +93,21 @@ class Table extends React.Component {
     rollCodemakerturn = (num, color) => {
         const e = document.querySelector(".Askstatus .Socket.n" + num)
         const {
-            Codebreakerformtoggled,
             Codemakerformtoggled,
-            CodemakerTarget,
-            CodebreakerTarget,
-            isPlayer1turn,
-            Checked,
-            Turn,
-            Secret } = this.props;
-
+            Codemakerchecked,
+        } = this.state;
+        debugger;
         if (e.classList.length == 2) {
-            this.PUSH_TABLE({
+            this.setState({
+                ...this.state,
                 Codemakerformtoggled: !Codemakerformtoggled,
-                CodebreakerTarget,
-                Codebreakerformtoggled,
-                CodemakerTarget,
-                isPlayer1turn,
-                Checked: [...Checked,color],
-                Turn,
-                Secret
+                Codemakerchecked: [...Codemakerchecked.slice(0, num % 4), color, ...Codemakerchecked.slice((num % 4) + 1)],
             })
         } else {
-            this.PUSH_TABLE({
+            this.setState({
+                ...this.state,
                 Codemakerformtoggled: !Codemakerformtoggled,
-                CodebreakerTarget,
-                Codebreakerformtoggled,
-                CodemakerTarget,
-                isPlayer1turn,
-                Checked,
-                Turn,
+                Codemakerchecked: [...Codemakerchecked.slice(0, num % 4), color, ...Codemakerchecked.slice((num % 4) + 1)],
             })
         }
         e.classList.remove("red", "blue", "green", "yellow", "white", "black");
@@ -128,35 +118,20 @@ class Table extends React.Component {
         const e = document.querySelector(".Asktable .Socket.n" + num)
         const {
             Codebreakerformtoggled,
-            CodebreakerTarget,
-            Codemakerformtoggled,
-            CodemakerTarget,
-            isPlayer1turn,
-            Checked,
-            Turn,
-            Secret } = this.props;
+            Codebreakerchecked,
+        } = this.state;
 
         if (e.classList.length == 2) {
-            this.PUSH_TABLE({
+            this.setState({
+                ...this.state,
                 Codebreakerformtoggled: !Codebreakerformtoggled,
-                CodebreakerTarget,
-                Codemakerformtoggled,
-                CodemakerTarget,
-                isPlayer1turn,
-                Checked: [...Checked,color],
-                Turn,
-                Secret
+                Codebreakerchecked: [...Codebreakerchecked.slice(0, num % 4), color, ...Codebreakerchecked.slice((num % 4) + 1)],
             })
         } else {
-            this.PUSH_TABLE({
+            this.setState({
+                ...this.state,
                 Codebreakerformtoggled: !Codebreakerformtoggled,
-                CodebreakerTarget,
-                Codemakerformtoggled,
-                CodemakerTarget,
-                isPlayer1turn,
-                Checked,
-                Turn,
-                Secret
+                Codebreakerchecked: [...Codebreakerchecked.slice(0, num % 4), color, ...Codebreakerchecked.slice((num % 4) + 1)],
             })
         }
         e.classList.remove("red", "blue", "green", "yellow", "white", "black");
@@ -164,7 +139,7 @@ class Table extends React.Component {
     }
 
     toggleSetupform = (Player1role) => {
-        const { Turn } = this.props;
+        const { Turn } = this.state;
         if (Turn === -1) {
             document.querySelector("div.Setupform").classList.toggle("active")
         }
@@ -181,84 +156,59 @@ class Table extends React.Component {
 
     rollTurns() {
         const {
+            CodemakerHist,
+            CodebreakerHist,
             Codebreakerformtoggled,
-            Codemakerformtoggled,
-            CodemakerTarget,
-            CodebreakerTarget,
             isPlayer1turn,
-            Checked,
-            Turn, Secret } = this.props;
+            Turn,
+            Codebreakerchecked,
+            Codemakerchecked } = this.state;
 
-        this.PUSH_TABLE({
+        this.setState({
+            ...this.state,
+            CodebreakerHist: ((isPlayer1turn) ? [...CodebreakerHist, Codebreakerchecked] : CodebreakerHist),
+            CodemakerHist: ((!isPlayer1turn) ? [...CodemakerHist, Codemakerchecked] : CodemakerHist),
             Codebreakerformtoggled: !Codebreakerformtoggled,
-            CodebreakerTarget,
-            Codemakerformtoggled,
-            CodemakerTarget,
+            Codebreakerchecked: ["", "", "", ""],
+            Codemakerchecked: ["", "", "", ""],
             isPlayer1turn: !isPlayer1turn,
-            Checked: [],
             Turn: Turn + 1,
-            Secret
         })
+
+        this.PUSH_TABLE({...this.state})
 
     }
 
     pushSecret(color) {
         debugger;
         const {
-            Codebreakerformtoggled,
-            Codemakerformtoggled,
-            CodemakerTarget,
-            CodebreakerTarget,
-            isPlayer1turn,
-            Checked,
-            Turn,
-            Secret } = this.props;
+            Secret } = this.state;
 
-        this.PUSH_TABLE({
-            Codebreakerformtoggled: !Codebreakerformtoggled,
-            CodebreakerTarget,
-            Codemakerformtoggled,
-            CodemakerTarget,
-            isPlayer1turn: !isPlayer1turn,
-            Checked: [],
-            Turn,
+        this.setState({
+            ...this.state,
             Secret: [...Secret, color]
         })
 
     }
 
     beginGame() {
-        const {
-            Codebreakerformtoggled,
-            CodebreakerTarget,
-            Codemakerformtoggled,
-            CodemakerTarget,
-            isPlayer1turn,
-            Checked,
-            Turn,
-            Secret } = this.props;
-
-
-        this.PUSH_TABLE({
-            Codebreakerformtoggled,
-            CodebreakerTarget,
-            Codemakerformtoggled,
-            CodemakerTarget,
-            isPlayer1turn,
-            Checked,
+        this.setState({
+            ...this.state,
             Turn: 0,
-            Secret
         })
     }
 
     render() {
-        debugger
         const {
+            CodemakerHist,
+            CodebreakerHist,
             isPlayer1turn,
-            Checked,
+            Codebreakerchecked,
+            Codemakerchecked,
             Turn,
-            Secret } = this.props;
+            Secret } = this.state;
 
+        debugger;
 
         return (
             <div className={"Table"}>
@@ -267,14 +217,14 @@ class Table extends React.Component {
                 <Tablehistory toggleHistory={this.toggleHistory} />
 
                 <div className={"row centered shorten1024 after0 " + ((Turn === -1) ? "inactive" : "")}>
-                    <Asktable turn={Turn} toggleCodebreaker={this.toggleCodebreaker} inactive={(Turn === -1)} />
+                    <Asktable CodebreakerHist={CodebreakerHist} Codebreakerchecked={Codebreakerchecked} turn={Turn} toggleCodebreaker={this.toggleCodebreaker} inactive={(Turn === -1)} />
                 </div>
                 <div className={"row centered shorten1024 " + ((Turn === -1) ? "inactive" : "")}>
-                    <Askstatus turn={Turn} toggleCodemaker={this.toggleCodemaker} inactive={(Turn === -1)} />
+                    <Askstatus CodemakerHist={CodemakerHist} Codemakerchecked={Codemakerchecked} turn={Turn} toggleCodemaker={this.toggleCodemaker} inactive={(Turn === -1)} />
                 </div>
 
 
-                <div className={"isPlayerready " + ((Checked.length === 4 || (!isPlayer1turn && Checked.length > 0)) ? "active" : "")} onClick={() => this.rollTurns()}>
+                <div className={"isPlayerready " + ((Codebreakerchecked.filter(e => e != "").length === 4 || (!isPlayer1turn && Codemakerchecked.filter(e => e != "").length > 0)) ? "active" : "")} onClick={() => this.rollTurns()}>
                     <span>Ready</span>
                     <span className="status">Tap here to continue</span>
                 </div>
@@ -284,10 +234,6 @@ class Table extends React.Component {
     }
 }
 
-const mapStateToProps = store => {
-    debugger;
-    return { ...store.table[store.table.length - 1] };
-};
 
 const mapDispatchToProps = dispatch => ({
     PUSH_TABLE: table => dispatch({ type: 'PUSH_TABLE', table }),
@@ -298,5 +244,5 @@ Table.propTypes = {
     PUSH_TABLE: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Table);
+export default connect(null, mapDispatchToProps)(Table);
 
