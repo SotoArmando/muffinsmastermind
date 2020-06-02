@@ -8,15 +8,16 @@ import Screenframe from '../components/screenframe';
 class Table extends React.Component {
     constructor(props) {
         super(props)
-        const { Codemakerformtoggled, Codebreakerformtoggled, CodemakerTarget, CodebreakerTarget, isPlayer1turn, Turn, Countchecked } = props;
+        const { Codemakerformtoggled, Codebreakerformtoggled, CodemakerTarget, CodebreakerTarget, isPlayer1turn, Turn, Countchecked, Secret } = props;
         this.state = {
             Codemakerformtoggled: Codemakerformtoggled || false,
             Codebreakerformtoggled: Codebreakerformtoggled || false,
             CodemakerTarget: CodemakerTarget || 0,
             CodebreakerTarget: CodebreakerTarget || 0,
             isPlayer1turn: isPlayer1turn || true,
-            Turn: Turn || 0,
+            Turn: Turn || -1,
             Countchecked: Countchecked || 0,
+            Secret: Secret || [],
         }
 
         this.toggleCodebreaker = this.toggleCodebreaker.bind(this);
@@ -25,20 +26,15 @@ class Table extends React.Component {
         this.rollCodebreakerturn = this.rollCodebreakerturn.bind(this);
         this.toggleSetupform = this.toggleSetupform.bind(this);
         this.rollTurns = this.rollTurns.bind(this);
-
+        this.toggleSecretform = this.toggleSecretform.bind(this);
+        this.pushSecret = this.pushSecret.bind(this);
+        this.beginGame = this.beginGame.bind(this);
     }
 
 
     toggleCodebreaker = (num, color) => {
         document.querySelector("div.Ansform").classList.toggle('active')
-        const {
-            Codebreakerformtoggled,
-            Codemakerformtoggled,
-            CodemakerTarget,
-            CodebreakerTarget,
-            isPlayer1turn,
-            Countchecked,
-            Turn } = this.state;
+        const { Codemakerformtoggled, Codebreakerformtoggled, CodemakerTarget, CodebreakerTarget, isPlayer1turn, Turn, Countchecked, Secret } = this.state;
 
         if (Codebreakerformtoggled) {
             this.rollCodebreakerturn(CodebreakerTarget, color)
@@ -52,6 +48,7 @@ class Table extends React.Component {
                 isPlayer1turn,
                 Countchecked,
                 Turn,
+                Secret
             })
         }
 
@@ -59,15 +56,9 @@ class Table extends React.Component {
 
     toggleCodemaker = (num, color) => {
         document.querySelector("div.Askform").classList.toggle('active')
-        const { Codebreakerformtoggled, Codemakerformtoggled, CodemakerTarget, CodebreakerTarget } = this.state;
+        const { Codemakerformtoggled, Codebreakerformtoggled, CodemakerTarget, CodebreakerTarget, isPlayer1turn, Turn, Countchecked, Secret } = this.state;
         if (Codemakerformtoggled) {
             this.rollCodemakerturn(CodemakerTarget, color)
-            this.setState({
-                Codemakerformtoggled: !Codemakerformtoggled,
-                CodemakerTarget,
-                Codebreakerformtoggled,
-                CodebreakerTarget,
-            })
         }
         else {
             this.setState({
@@ -75,6 +66,10 @@ class Table extends React.Component {
                 CodemakerTarget: num,
                 Codebreakerformtoggled,
                 CodebreakerTarget,
+                isPlayer1turn,
+                Countchecked,
+                Turn,
+                Secret
             })
         }
 
@@ -89,7 +84,8 @@ class Table extends React.Component {
             CodebreakerTarget,
             isPlayer1turn,
             Countchecked,
-            Turn } = this.state;
+            Turn,
+            Secret } = this.state;
 
         if (e.classList.length == 2) {
             this.setState({
@@ -100,6 +96,7 @@ class Table extends React.Component {
                 isPlayer1turn,
                 Countchecked: Countchecked + 1,
                 Turn,
+                Secret
             })
         } else {
             this.setState({
@@ -120,12 +117,13 @@ class Table extends React.Component {
         const e = document.querySelector(".Asktable .Socket.n" + num)
         const {
             Codebreakerformtoggled,
+            CodebreakerTarget,
             Codemakerformtoggled,
             CodemakerTarget,
-            CodebreakerTarget,
             isPlayer1turn,
             Countchecked,
-            Turn } = this.state;
+            Turn,
+            Secret } = this.state;
 
         if (e.classList.length == 2) {
             this.setState({
@@ -136,6 +134,7 @@ class Table extends React.Component {
                 isPlayer1turn,
                 Countchecked: Countchecked + 1,
                 Turn,
+                Secret
             })
         } else {
             this.setState({
@@ -146,14 +145,19 @@ class Table extends React.Component {
                 isPlayer1turn,
                 Countchecked,
                 Turn,
+                Secret
             })
         }
         e.classList.remove("red", "blue", "green", "yellow", "white", "black");
         e.classList.toggle(color);
     }
 
-    toggleSetupform = () => {
+    toggleSetupform = (Player1role) => {
         document.querySelector("div.Setupform").classList.toggle("active")
+    }
+
+    toggleSecretform = () => {
+        document.querySelector("div.Secretcodesetup").classList.toggle("active")
     }
 
     rollTurns() {
@@ -164,7 +168,7 @@ class Table extends React.Component {
             CodebreakerTarget,
             isPlayer1turn,
             Countchecked,
-            Turn } = this.state;
+            Turn, Secret } = this.state;
 
         this.setState({
             Codebreakerformtoggled: !Codebreakerformtoggled,
@@ -174,11 +178,13 @@ class Table extends React.Component {
             isPlayer1turn: !isPlayer1turn,
             Countchecked: 0,
             Turn: Turn + 1,
+            Secret
         })
 
     }
 
-    render() {
+    pushSecret(color) {
+        debugger;
         const {
             Codebreakerformtoggled,
             Codemakerformtoggled,
@@ -186,20 +192,66 @@ class Table extends React.Component {
             CodebreakerTarget,
             isPlayer1turn,
             Countchecked,
-            Turn } = this.state;
+            Turn,
+            Secret } = this.state;
 
+        this.setState({
+            Codebreakerformtoggled: !Codebreakerformtoggled,
+            CodebreakerTarget,
+            Codemakerformtoggled,
+            CodemakerTarget,
+            isPlayer1turn: !isPlayer1turn,
+            Countchecked: 0,
+            Turn,
+            Secret: [...Secret, color]
+        })
+
+    }
+
+    beginGame() {
+        const {
+            Codebreakerformtoggled,
+            CodebreakerTarget,
+            Codemakerformtoggled,
+            CodemakerTarget,
+            isPlayer1turn,
+            Countchecked,
+            Turn,
+            Secret } = this.state;
+
+
+        this.setState({
+            Codebreakerformtoggled,
+            CodebreakerTarget,
+            Codemakerformtoggled,
+            CodemakerTarget,
+            isPlayer1turn,
+            Countchecked,
+            Turn: 0,
+            Secret
+        })
+    }
+
+    render() {
+        const {
+            isPlayer1turn,
+            Countchecked,
+            Turn,
+            Secret } = this.state;
+        console.log(Countchecked);
 
         return (
-            <div className="Table">
-                <Formtable toggleSetupform={this.toggleSetupform} toggleCodebreaker={this.toggleCodebreaker} toggleCodemaker={this.toggleCodemaker} />
+            <div className={"Table"}>
+                <Formtable secret={Secret} beginGame={this.beginGame} pushSecret={this.pushSecret} toggleSetupform={this.toggleSetupform} toggleCodebreaker={this.toggleCodebreaker} toggleCodemaker={this.toggleCodemaker} toggleSecretform={this.toggleSecretform} />
                 <Statustable />
-                <div className="row centered shorten1024 after0">
-                    <Asktable turn={Turn} toggleCodebreaker={this.toggleCodebreaker} />
+
+                <div className={"row centered shorten1024 after0 " + ((Turn === -1) ? "inactive" : "")}>
+                    <Asktable turn={Turn} toggleCodebreaker={this.toggleCodebreaker} inactive={(Turn === -1)} />
                 </div>
-                <div className="row centered shorten1024">
-                    <Askstatus turn={Turn} toggleCodemaker={this.toggleCodemaker} />
+                <div className={"row centered shorten1024" + ((Turn === -1) ? "inactive" : "")}>
+                    <Askstatus turn={Turn} toggleCodemaker={this.toggleCodemaker} inactive={(Turn === -1)} />
                 </div>
-                <div className={"isPlayerready " + ((Countchecked === 4) ? "active" : "")} onClick={() => this.rollTurns()}>
+                <div className={"isPlayerready " + ((Countchecked === 4 || (!isPlayer1turn && Countchecked > 0)) ? "active" : "")} onClick={() => this.rollTurns()}>
                     <span>Ready</span>
                     <span className="status">Tap here to continue</span>
                 </div>

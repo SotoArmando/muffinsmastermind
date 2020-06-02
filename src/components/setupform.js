@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Setupform(props) {
-    const { toggleSetupform } = props;
+    const { toggleSetupform, toggleSecretform } = props;
 
 
     return (
         <div className="Setupform">
             <span className="Close" onClick={() => toggleSetupform()}>Close</span>
-            <span> Are you the Cokemaker or the Codebreaker?</span>
+            <span className="margin0"> Are you the Cokemaker or the Codebreaker?</span>
             <div className="row centered">
-                <span className="option">Codemaker</span>
-                <span className="option">Codebreaker</span>
+                <span className="option" onClick={() => { toggleSetupform(); toggleSecretform(); }}>Codemaker</span>
+                <span className="option" onClick={() => { toggleSetupform(); toggleSecretform(); }}>Codebreaker</span>
             </div>
         </div>
     );

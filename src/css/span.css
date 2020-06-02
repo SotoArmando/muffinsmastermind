@@ -49,3 +49,6 @@ span.option:hover {
     transition-duration: 357ms;
 }
 
+span.margin0 {
+    padding: 3rem 0;
+}
