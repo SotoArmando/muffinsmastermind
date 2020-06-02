@@ -52,3 +52,7 @@ span.option:hover {
 span.margin0 {
     padding: 3rem 0;
 }
+
+span.head {
+    font-size: 1.375em;
+}

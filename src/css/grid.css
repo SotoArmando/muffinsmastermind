@@ -2,6 +2,13 @@ div.row.centered {
     display: flex;
     justify-content: center;
 }
+
+div.row.row0 {
+    width: 100%;
+    justify-content: space-around;
+}
+
+
 @media only screen and (max-width: 1024px) {
     div.row.shorten1024 {
         max-width: 20rem;

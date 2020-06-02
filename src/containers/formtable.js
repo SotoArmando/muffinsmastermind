@@ -14,6 +14,27 @@ function Formtable(props) {
         pushSecret,
         secret } = props;
 
+    const secretlength = secret.length;
+
+    const returnStatus = (length) => {
+        if (length === 4) {
+            return (
+                <div className="col col0" onClick={() => toggleSetupform()}>
+                    <span>Game Ready</span>
+                    <span className="status">Go ahead and play :D</span>
+                </div>
+            )
+        } else {
+            return (
+                <div className="col col0" onClick={() => toggleSetupform()}>
+                    <span>Are you ready?</span>
+                    <span className="status">Tap here to Start</span>
+                </div>
+            )
+        }
+
+    }
+
     return (
         <div className="Formtable">
             <Askform toggleCodemaker={toggleCodemaker} />
@@ -21,13 +42,16 @@ function Formtable(props) {
             <Setupform toggleSetupform={toggleSetupform} toggleSecretform={toggleSecretform} />
             <Secretcodesetup beginGame={beginGame} toggleSecretform={toggleSecretform} pushSecret={pushSecret} secret={secret} />
 
-            <div className="col col0" onClick={() => toggleSetupform()}>
-                <span>Are you ready?</span>
-                <span className="status">Tap here to Start</span>
-            </div>
-            <div className="col col0">
-                <span></span>
-
+            {returnStatus(secretlength)}
+            <div className="row row0 centered">
+                <div className="col">
+                    <span className="head">0</span>
+                    <span>Codemaker</span>
+                </div>
+                <div className="col">
+                    <span className="head">0</span>
+                    <span>Codebreaker</span>
+                </div>
             </div>
         </div>
     );

@@ -153,7 +153,11 @@ class Table extends React.Component {
     }
 
     toggleSetupform = (Player1role) => {
-        document.querySelector("div.Setupform").classList.toggle("active")
+        const { Turn } = this.state;
+        if (Turn === -1) {
+            document.querySelector("div.Setupform").classList.toggle("active")
+        }
+        
     }
 
     toggleSecretform = () => {
