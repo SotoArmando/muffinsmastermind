@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import book from './book';
+import table from './table';
 
 
 const rootReducer = combineReducers({
-  book,
+    table,
 });
 
 

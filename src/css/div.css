@@ -293,3 +293,32 @@ div.Secretcode {
     justify-content: center;
 }
 /* END Secretcodesetup */
+/* BEGIN Tablehistory */
+
+div.Tablehistory {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 15);
+    box-shadow: black 1px 1px;
+    height: 100vh;
+    width: 50vw;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    z-index: 200;
+    transition-duration: 367ms;
+    transform: translateX(-100%);
+}
+
+div.Tablehistory.active {
+    transition-duration: 367ms;
+    transform: translateX(0);
+    pointer-events: all;
+}
+
+
+/* END Tablehistory */

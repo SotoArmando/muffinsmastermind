@@ -1,14 +1,18 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Asktable from '../components/asktable';
 import Askstatus from '../components/askstatus';
 import Formtable from './formtable';
 import Statustable from './statustable';
 import Screenframe from '../components/screenframe';
+import Tablehistory from './tablehistory';
 
 class Table extends React.Component {
     constructor(props) {
         super(props)
-        const { Codemakerformtoggled, Codebreakerformtoggled, CodemakerTarget, CodebreakerTarget, isPlayer1turn, Turn, Countchecked, Secret } = props;
+        const { Codemakerformtoggled, Codebreakerformtoggled, CodemakerTarget, CodebreakerTarget, isPlayer1turn, Turn, Countchecked, Secret, PUSH_TABLE } = props;
+
         this.state = {
             Codemakerformtoggled: Codemakerformtoggled || false,
             Codebreakerformtoggled: Codebreakerformtoggled || false,
@@ -29,18 +33,18 @@ class Table extends React.Component {
         this.toggleSecretform = this.toggleSecretform.bind(this);
         this.pushSecret = this.pushSecret.bind(this);
         this.beginGame = this.beginGame.bind(this);
+        this.PUSH_TABLE = PUSH_TABLE.bind(this);
     }
-
 
     toggleCodebreaker = (num, color) => {
         document.querySelector("div.Ansform").classList.toggle('active')
-        const { Codemakerformtoggled, Codebreakerformtoggled, CodemakerTarget, CodebreakerTarget, isPlayer1turn, Turn, Countchecked, Secret } = this.state;
+        const { Codemakerformtoggled, Codebreakerformtoggled, CodemakerTarget, CodebreakerTarget, isPlayer1turn, Turn, Countchecked, Secret } = this.props;
 
         if (Codebreakerformtoggled) {
             this.rollCodebreakerturn(CodebreakerTarget, color)
         }
         else {
-            this.setState({
+            this.PUSH_TABLE({
                 Codebreakerformtoggled: !Codebreakerformtoggled,
                 CodebreakerTarget: num,
                 Codemakerformtoggled,
@@ -56,12 +60,12 @@ class Table extends React.Component {
 
     toggleCodemaker = (num, color) => {
         document.querySelector("div.Askform").classList.toggle('active')
-        const { Codemakerformtoggled, Codebreakerformtoggled, CodemakerTarget, CodebreakerTarget, isPlayer1turn, Turn, Countchecked, Secret } = this.state;
+        const { Codemakerformtoggled, Codebreakerformtoggled, CodemakerTarget, CodebreakerTarget, isPlayer1turn, Turn, Countchecked, Secret } = this.props;
         if (Codemakerformtoggled) {
             this.rollCodemakerturn(CodemakerTarget, color)
         }
         else {
-            this.setState({
+            this.PUSH_TABLE({
                 Codemakerformtoggled: !Codemakerformtoggled,
                 CodemakerTarget: num,
                 Codebreakerformtoggled,
@@ -85,10 +89,10 @@ class Table extends React.Component {
             isPlayer1turn,
             Countchecked,
             Turn,
-            Secret } = this.state;
+            Secret } = this.props;
 
         if (e.classList.length == 2) {
-            this.setState({
+            this.PUSH_TABLE({
                 Codemakerformtoggled: !Codemakerformtoggled,
                 CodebreakerTarget,
                 Codebreakerformtoggled,
@@ -99,7 +103,7 @@ class Table extends React.Component {
                 Secret
             })
         } else {
-            this.setState({
+            this.PUSH_TABLE({
                 Codemakerformtoggled: !Codemakerformtoggled,
                 CodebreakerTarget,
                 Codebreakerformtoggled,
@@ -123,10 +127,10 @@ class Table extends React.Component {
             isPlayer1turn,
             Countchecked,
             Turn,
-            Secret } = this.state;
+            Secret } = this.props;
 
         if (e.classList.length == 2) {
-            this.setState({
+            this.PUSH_TABLE({
                 Codebreakerformtoggled: !Codebreakerformtoggled,
                 CodebreakerTarget,
                 Codemakerformtoggled,
@@ -137,7 +141,7 @@ class Table extends React.Component {
                 Secret
             })
         } else {
-            this.setState({
+            this.PUSH_TABLE({
                 Codebreakerformtoggled: !Codebreakerformtoggled,
                 CodebreakerTarget,
                 Codemakerformtoggled,
@@ -153,15 +157,19 @@ class Table extends React.Component {
     }
 
     toggleSetupform = (Player1role) => {
-        const { Turn } = this.state;
+        const { Turn } = this.props;
         if (Turn === -1) {
             document.querySelector("div.Setupform").classList.toggle("active")
         }
-        
+
     }
 
     toggleSecretform = () => {
         document.querySelector("div.Secretcodesetup").classList.toggle("active")
+    }
+
+    toggleHistory= () => {
+        document.querySelector("div.Tablehistory").classList.toggle("active")
     }
 
     rollTurns() {
@@ -172,9 +180,9 @@ class Table extends React.Component {
             CodebreakerTarget,
             isPlayer1turn,
             Countchecked,
-            Turn, Secret } = this.state;
+            Turn, Secret } = this.props;
 
-        this.setState({
+        this.PUSH_TABLE({
             Codebreakerformtoggled: !Codebreakerformtoggled,
             CodebreakerTarget,
             Codemakerformtoggled,
@@ -197,9 +205,9 @@ class Table extends React.Component {
             isPlayer1turn,
             Countchecked,
             Turn,
-            Secret } = this.state;
+            Secret } = this.props;
 
-        this.setState({
+        this.PUSH_TABLE({
             Codebreakerformtoggled: !Codebreakerformtoggled,
             CodebreakerTarget,
             Codemakerformtoggled,
@@ -221,10 +229,10 @@ class Table extends React.Component {
             isPlayer1turn,
             Countchecked,
             Turn,
-            Secret } = this.state;
+            Secret } = this.props;
 
 
-        this.setState({
+        this.PUSH_TABLE({
             Codebreakerformtoggled,
             CodebreakerTarget,
             Codemakerformtoggled,
@@ -237,17 +245,19 @@ class Table extends React.Component {
     }
 
     render() {
+        debugger
         const {
             isPlayer1turn,
             Countchecked,
             Turn,
-            Secret } = this.state;
-        console.log(Countchecked);
+            Secret } = this.props;
+
 
         return (
             <div className={"Table"}>
                 <Formtable secret={Secret} beginGame={this.beginGame} pushSecret={this.pushSecret} toggleSetupform={this.toggleSetupform} toggleCodebreaker={this.toggleCodebreaker} toggleCodemaker={this.toggleCodemaker} toggleSecretform={this.toggleSecretform} />
-                <Statustable />
+                <Statustable toggleHistory={this.toggleHistory} />
+                <Tablehistory toggleHistory={this.toggleHistory} />
 
                 <div className={"row centered shorten1024 after0 " + ((Turn === -1) ? "inactive" : "")}>
                     <Asktable turn={Turn} toggleCodebreaker={this.toggleCodebreaker} inactive={(Turn === -1)} />
@@ -255,6 +265,8 @@ class Table extends React.Component {
                 <div className={"row centered shorten1024" + ((Turn === -1) ? "inactive" : "")}>
                     <Askstatus turn={Turn} toggleCodemaker={this.toggleCodemaker} inactive={(Turn === -1)} />
                 </div>
+
+
                 <div className={"isPlayerready " + ((Countchecked === 4 || (!isPlayer1turn && Countchecked > 0)) ? "active" : "")} onClick={() => this.rollTurns()}>
                     <span>Ready</span>
                     <span className="status">Tap here to continue</span>
@@ -265,5 +277,19 @@ class Table extends React.Component {
     }
 }
 
+const mapStateToProps = store => {
+    debugger;
+    return { ...store.table[store.table.length - 1] };
+};
 
-export default Table;
+const mapDispatchToProps = dispatch => ({
+    PUSH_TABLE: table => dispatch({ type: 'PUSH_TABLE', table }),
+});
+
+
+Table.propTypes = {
+    PUSH_TABLE: PropTypes.func.isRequired,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Table);
+

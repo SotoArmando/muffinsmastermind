@@ -56,3 +56,15 @@ span.margin0 {
 span.head {
     font-size: 1.375em;
 }
+
+span.status0 {
+    padding: 0 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+span.border0 {
+    border:.075rem solid rgba(255,255,255,.34);
+    border-radius: .5rem;
+}
