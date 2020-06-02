@@ -7,6 +7,7 @@ import './css/form.css';
 import './css/span.css';
 import './css/ball.css';
 import './css/socket.css';
+import './css/after.css';
 import App from './App';
 
 import * as serviceWorker from './serviceWorker';

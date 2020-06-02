@@ -11,10 +11,12 @@ div.Ansform {
     display: flex;
     opacity: 0;
     pointer-events: none;
-    z-index: 10;
+    z-index: 100;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    padding-bottom: 4rem;
+    box-sizing: border-box;
 }
 
 div.Ansform > .option {
@@ -29,7 +31,21 @@ div.Ansform > .option {
     display: flex;
     align-items: center;
     justify-content: center;
+    
+   
 }
+
+@media only screen and (max-width: 1024px) {
+    div.Ansform {
+        box-sizing: border-box;
+        padding-bottom: 4rem;
+    }
+
+    div.Ansform > .option {
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+    }
+  }
 
 div.Ansform.active {
     transition-duration: 357ms;
@@ -51,11 +67,12 @@ div.Askform {
     display: flex;
     opacity: 0;
     pointer-events: none;
-    z-index: 10;
+    z-index: 100;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    
+    max-height: 100vh;
+    overflow-y: scroll;
 }
 
 div.Askform > .option {

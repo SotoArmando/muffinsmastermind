@@ -2,10 +2,23 @@ span.Close {
     position: absolute;
     right: 0;
     bottom: 0;
-    min-height: 5rem;
-    min-width: 5rem;
+    min-height: 4rem;
+    min-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: red;
 }
+
+@media only screen and (max-width: 1024px) {
+    span.Close {
+        width: 100vw;
+        height: 4rem;
+        right: 0;
+        bottom: 0;
+        min-height: unset;
+    }
+  }
 
 span.status {
     color: rgba(255,255,255,.54)
@@ -14,3 +27,25 @@ span.status {
 span {
     color: rgba(255,255,255,.84)
 }
+
+span.option {
+    width: 10rem;
+    height: 10rem;
+    border:1px solid rgba(255,255,255,.34);
+    display: flex;
+    color: rgba(255,255,255,.34);
+    justify-content: center;
+    align-items: center;
+    border-radius: 2.5rem;
+    transition-duration: 357ms;
+    margin: 1rem;
+    cursor: pointer;
+}
+
+
+span.option:hover {
+    color: rgba(255,255,255,.84);
+    border:1px solid rgba(255,255,255,.84);
+    transition-duration: 357ms;
+}
+

@@ -3,6 +3,7 @@ import Asktable from '../components/asktable';
 import Askstatus from '../components/askstatus';
 import Formtable from './formtable';
 import Statustable from './statustable';
+import Screenframe from '../components/screenframe';
 
 class Table extends React.Component {
     constructor(props) {
@@ -22,14 +23,15 @@ class Table extends React.Component {
         this.toggleCodemaker = this.toggleCodemaker.bind(this);
         this.rollCodemakerturn = this.rollCodemakerturn.bind(this);
         this.rollCodebreakerturn = this.rollCodebreakerturn.bind(this);
+        this.toggleSetupform = this.toggleSetupform.bind(this);
         this.rollTurns = this.rollTurns.bind(this);
+
     }
 
 
     toggleCodebreaker = (num, color) => {
-        debugger;
         document.querySelector("div.Ansform").classList.toggle('active')
-        const { 
+        const {
             Codebreakerformtoggled,
             Codemakerformtoggled,
             CodemakerTarget,
@@ -80,7 +82,7 @@ class Table extends React.Component {
 
     rollCodemakerturn = (num, color) => {
         const e = document.querySelector(".Askstatus .Socket.n" + num)
-        const { 
+        const {
             Codebreakerformtoggled,
             Codemakerformtoggled,
             CodemakerTarget,
@@ -109,14 +111,14 @@ class Table extends React.Component {
                 Countchecked,
                 Turn,
             })
-        } 
+        }
         e.classList.remove("red", "blue", "green", "yellow", "white", "black");
         e.classList.toggle(color);
     }
 
     rollCodebreakerturn = (num, color) => {
         const e = document.querySelector(".Asktable .Socket.n" + num)
-        const { 
+        const {
             Codebreakerformtoggled,
             Codemakerformtoggled,
             CodemakerTarget,
@@ -145,13 +147,17 @@ class Table extends React.Component {
                 Countchecked,
                 Turn,
             })
-        } 
+        }
         e.classList.remove("red", "blue", "green", "yellow", "white", "black");
         e.classList.toggle(color);
     }
 
+    toggleSetupform = () => {
+        document.querySelector("div.Setupform").classList.toggle("active")
+    }
+
     rollTurns() {
-        const { 
+        const {
             Codebreakerformtoggled,
             Codemakerformtoggled,
             CodemakerTarget,
@@ -169,11 +175,11 @@ class Table extends React.Component {
             Countchecked: 0,
             Turn: Turn + 1,
         })
-        
+
     }
 
     render() {
-        const { 
+        const {
             Codebreakerformtoggled,
             Codemakerformtoggled,
             CodemakerTarget,
@@ -185,14 +191,19 @@ class Table extends React.Component {
 
         return (
             <div className="Table">
-                <Formtable toggleCodebreaker={this.toggleCodebreaker} toggleCodemaker={this.toggleCodemaker} />
+                <Formtable toggleSetupform={this.toggleSetupform} toggleCodebreaker={this.toggleCodebreaker} toggleCodemaker={this.toggleCodemaker} />
                 <Statustable />
-                <div className="row centered">
-                    <Asktable turn={Turn} roll={this.rollTurns} isPlayerready={Countchecked===4 && isPlayer1turn} toggleCodebreaker={this.toggleCodebreaker} />
+                <div className="row centered shorten1024 after0">
+                    <Asktable turn={Turn} toggleCodebreaker={this.toggleCodebreaker} />
                 </div>
-                <div className="row centered">
-                    <Askstatus turn={Turn} roll={this.rollTurns} isPlayerready={Countchecked===4 && !isPlayer1turn} toggleCodemaker={this.toggleCodemaker} />
+                <div className="row centered shorten1024">
+                    <Askstatus turn={Turn} toggleCodemaker={this.toggleCodemaker} />
                 </div>
+                <div className={"isPlayerready " + ((Countchecked === 4) ? "active" : "")} onClick={() => this.rollTurns()}>
+                    <span>Ready</span>
+                    <span className="status">Tap here to continue</span>
+                </div>
+
             </div>
         );
     }

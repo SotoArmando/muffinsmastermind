@@ -12,7 +12,7 @@ function Asktable(props) {
 
 
     return (
-        <div className="Asktable">
+        <div className={"Asktable f" + focus}>
             {new Array(asktimes).fill(true).map(e => 1).map((e, i) =>
                 <div className={"Ask " + ((i === focus && active) ? "active" : "")}>
                     <div onClick={() => toggleCodebreaker((4 * i))} className={"Socket n" + (4 * i)}></div>
@@ -21,7 +21,7 @@ function Asktable(props) {
                     <div onClick={() => toggleCodebreaker((4 * i) + 3)} className={"Socket n" + ((4 * i) + 3)}></div>
                 </div>)
             }
-            <div className={"isPlayerready " + ((isPlayerready) ? "active" : "")} onClick={() => roll() } >
+            <div className={"isPlayerready " + ((isPlayerready) ? "active" : "")} onClick={() => roll()} >
                 <span>Ready</span>
                 <span className="status">Tap here to continue</span>
             </div>

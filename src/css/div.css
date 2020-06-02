@@ -1,14 +1,18 @@
 /* BEGIN Table */
 
 div.Table {
-    padding: 5rem;
+    display: flex;
+    padding-top: 5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* END Table */
 /* BEGIN Asktable */
 
 div.Asktable {
-    width: 50rem;
+    min-width: 50rem;
     display: flex;
     flex-direction: row;
     height: 20rem;
@@ -53,11 +57,20 @@ div.Asktable > div.Ask.active > div.Socket:hover {
     border: .12rem solid red;
 }
 
+@media only screen and (max-width: 1024px) {
+    div.Asktable {
+        min-width: 50rem;
+        display: flex;
+        flex-direction: row;
+        height: 18rem;
+        align-self: center;
+    }
+  }
 /* END Asktable */
 /* BEGIN Askstatus */
 
 div.Askstatus {
-    width: 50rem;
+    min-width: 50rem;
     display: flex;
     flex-direction: row;
     height: 5rem;
@@ -142,8 +155,8 @@ div.isPlayerready {
     bottom: 0;
     background-color:blue;
     box-shadow: black 1px 1px;
-    min-height: 10rem;
-    min-width: 10rem;
+    width: 100vw;
+    height: 4rem;
     opacity: 0;
     pointer-events: none;
     display: flex;
@@ -151,6 +164,7 @@ div.isPlayerready {
     align-items: center;
     flex-direction: column;
     cursor: pointer;
+    z-index: 101;
 }
 
 div.isPlayerready.active {
@@ -158,4 +172,73 @@ div.isPlayerready.active {
     pointer-events: all;
 }
 
+@media only screen and (max-width: 1024px) {
+
+    div.isPlayerready {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        background-color:blue;
+        box-shadow: black 1px 1px;
+        min-height: 4rem;
+        min-width: unset;
+        width: 100vw;
+        opacity: 0;
+        pointer-events: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        cursor: pointer;
+        z-index: 101;
+    }
+  }
+
 /* END isPlayerready */
+/* BEGIN Setupform */
+
+div.Setupform {
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 15);
+    box-shadow: black 1px 1px;
+    height: 100vh;
+    width: 100vw;
+    opacity: 0;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    z-index: 100;
+    transition-duration: 367ms;
+    
+}
+
+div.Setupform.active {
+    opacity: 1;
+    pointer-events: all;
+    transition-duration: 367ms;
+}
+/* END Setupform */
+/* BEGIN Screenframe */
+
+div.Screenframe{
+    z-index: 100;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    left: 0;
+    top: 0;
+    
+}
+
+
+
+
+
+
+/* END Screenframe */

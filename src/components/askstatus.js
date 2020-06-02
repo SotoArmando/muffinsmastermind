@@ -8,7 +8,7 @@ function Askstatus(props) {
     const active = (turn % 2) === 1;
 
     return (
-        <div className="Askstatus">
+        <div className={"Askstatus f" + focus}>
             {new Array(asktimes).fill(true).map((e, i) =>
                 <div className={"Ask " + ((i === focus && active) ? "active" : "")}>
                     <div onClick={() => toggleCodemaker((4 * i))} className={"Socket n" + (4 * i)}></div>
@@ -17,10 +17,7 @@ function Askstatus(props) {
                     <div onClick={() => toggleCodemaker((4 * i) + 3)} className={"Socket n" + ((4 * i) + 3)}></div>
                 </div>)
             }
-            <div className={"isPlayerready " + ((isPlayerready) ? "active" : "")} onClick={() => roll()}>
-                <span>Ready</span>
-                <span className="status">Tap here to continue</span>
-            </div>
+ 
         </div>
     );
 }

@@ -1,0 +1,122 @@
+
+@media only screen and (max-width: 1024px) {
+    .after0::after {
+        background-image: linear-gradient(90deg,rgba(15,15,15,1),transparent,transparent,transparent,transparent,transparent,transparent,transparent,rgba(15,15,15,1));
+        position: absolute;
+        height: 23rem;
+        width: 20rem;
+        content: "";
+        pointer-events: none;
+        z-index: 99;
+    }
+    
+    .Asktable {
+        transition-duration: 357ms;
+        transform: translateX(17.5rem);
+    }
+
+    .Asktable.f0 {
+        transition-duration: 357ms;
+        transform: translateX(17.5rem);
+    }
+
+    .Asktable.f1 {
+        transition-duration: 357ms;
+        transform: translateX(12.5rem);
+    }
+
+    .Asktable.f2 {
+        transition-duration: 357ms;
+        transform: translateX(7.5rem);
+    }
+
+    .Asktable.f3 {
+        transition-duration: 357ms;
+        transform: translateX(2.5rem);
+    }
+
+    .Asktable.f4 {
+        transition-duration: 357ms;
+        transform: translateX(-3.5rem);
+    }
+
+    .Asktable.f5 {
+        transition-duration: 357ms;
+        transform: translateX(-8.5rem);
+    }
+
+    .Asktable.f6 {
+        transition-duration: 357ms;
+        transform: translateX(-13.5rem);
+    }
+
+    .Asktable.f7 {
+        transition-duration: 357ms;
+        transform: translateX(-18.5rem);
+    }
+
+    .Asktable.f8 {
+        transition-duration: 357ms;
+        transform: translateX(-23.5rem);
+    }
+
+    .Asktable.f9 {
+        transition-duration: 357ms;
+        transform: translateX(-28.5rem);
+    }
+
+    .Askstatus {
+        transition-duration: 357ms;
+        transform: translateX(17.5rem);
+    }
+
+    .Askstatus.f0 {
+        transition-duration: 357ms;
+        transform: translateX(17.5rem);
+    }
+
+    .Askstatus.f1 {
+        transition-duration: 357ms;
+        transform: translateX(12.5rem);
+    }
+
+    .Askstatus.f2 {
+        transition-duration: 357ms;
+        transform: translateX(7.5rem);
+    }
+
+    .Askstatus.f3 {
+        transition-duration: 357ms;
+        transform: translateX(2.5rem);
+    }
+
+    .Askstatus.f4 {
+        transition-duration: 357ms;
+        transform: translateX(-3.5rem);
+    }
+
+    .Askstatus.f5 {
+        transition-duration: 357ms;
+        transform: translateX(-8.5rem);
+    }
+
+    .Askstatus.f6 {
+        transition-duration: 357ms;
+        transform: translateX(-13.5rem);
+    }
+
+    .Askstatus.f7 {
+        transition-duration: 357ms;
+        transform: translateX(-18.5rem);
+    }
+
+    .Askstatus.f8 {
+        transition-duration: 357ms;
+        transform: translateX(-23.5rem);
+    }
+
+    .Askstatus.f9 {
+        transition-duration: 357ms;
+        transform: translateX(-28.5rem);
+    }
+}
