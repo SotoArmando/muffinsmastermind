@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function Answertable() {
+function Anstable() {
     const { } = props;
     const asktimes = 10;
     const active = 0;
@@ -22,4 +22,4 @@ function Answertable() {
 }
 
 
-export default Answertable;
+export default Anstable;

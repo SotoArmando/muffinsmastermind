@@ -1,0 +1,81 @@
+/* BEGIN Ansform */
+
+div.Ansform {
+    position: absolute;
+    left: 0;
+    top: 0;
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: rgba(0,0,0,.54);
+    transition-duration: 357ms;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+div.Ansform > .option {
+    min-height: 10rem;
+    max-width: 10rem;
+    margin: 0 5rem;
+    flex-grow: 1;
+    flex-basis: 30%;
+    border-radius: 3rem;
+    background-color: rgba(255,255,255,.34);
+    border: 0.075rem solid rgba(255,255,255,.34);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.Ansform.active {
+    transition-duration: 357ms;
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* END Ansform */
+/* BEGIN Askform */
+
+div.Askform {
+    position: absolute;
+    left: 0;
+    top: 0;
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: rgba(0,0,0,.54);
+    transition-duration: 357ms;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+
+div.Askform > .option {
+    min-height: 10rem;
+    max-width: 10rem;
+    margin: 0 5rem;
+    flex-grow: 1;
+    flex-basis: 30%;
+    border-radius: 3rem;
+    background-color: rgba(255,255,255,.34);
+    border: 0.075rem solid rgba(255,255,255,.34);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.Askform.active {
+    transition-duration: 357ms;
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* END Askform */

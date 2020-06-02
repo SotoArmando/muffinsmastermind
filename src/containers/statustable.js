@@ -9,7 +9,7 @@ function Statustable(props) {
 
     return (
         <div className="Statustable">
-            
+            <span>Follow instructions</span>
         </div>
     );
 }

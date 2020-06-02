@@ -2,14 +2,15 @@ import React from 'react';
 
 
 function Askform(props) {
-    const { } = props;
-    const asktimes = 10;
-    const active = 0;
-    
+    const { toggleCodemaker } = props;
+
 
     return (
         <div className="Askform">
-            
+            <span className="Close" onClick={() => toggleCodemaker()}>Close</span>
+            <div className="option"><div onClick={() => toggleCodemaker(0,"white")} className="ball white"></div></div>
+            <div className="option"><div onClick={() => toggleCodemaker(0,"red")} className="ball red"></div></div>
+
         </div>
     );
 }

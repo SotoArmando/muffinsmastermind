@@ -1,0 +1,16 @@
+span.Close {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-height: 5rem;
+    min-width: 5rem;
+    background-color: red;
+}
+
+span.status {
+    color: rgba(255,255,255,.54)
+}
+
+span {
+    color: rgba(255,255,255,.84)
+}
