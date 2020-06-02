@@ -329,3 +329,10 @@ div.Tablehistory.active {
 
 
 /* END Tablehistory */
+div.playerlabel > span {
+    color:rgba(255,255,255, .15) ;
+}
+div.playerlabel.active > span {
+    color:rgba(255,255,255, .64) ;
+    transition-duration: 357ms;
+}

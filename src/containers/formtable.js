@@ -12,6 +12,7 @@ function Formtable(props) {
         toggleSetupform,
         toggleSecretform,
         pushSecret,
+        isPlayer1turn,
         secret } = props;
 
     const secretlength = secret.length;
@@ -44,13 +45,11 @@ function Formtable(props) {
 
             {returnStatus(secretlength)}
             <div className="row row0 centered">
-                <div className="col">
-                    <span className="head">0</span>
-                    <span>Codemaker</span>
+                <div className={"col playerlabel "+((!isPlayer1turn)?"active":"")}>
+                    <span className="">Codemaker</span>
                 </div>
-                <div className="col">
-                    <span className="head">0</span>
-                    <span>Codebreaker</span>
+                <div className={"col playerlabel "+((isPlayer1turn)?"active":"")}>
+                    <span className="">Codebreaker</span>
                 </div>
             </div>
         </div>

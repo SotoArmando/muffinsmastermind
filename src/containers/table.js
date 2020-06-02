@@ -11,7 +11,7 @@ import Tablehistory from './tablehistory';
 class Table extends React.Component {
     constructor(props) {
         super(props)
-        const { Codemakerformtoggled, Codebreakerformtoggled, CodemakerTarget, CodebreakerTarget, isPlayer1turn, Turn, Countchecked, Secret, PUSH_TABLE } = props;
+        const { Codemakerformtoggled, Codebreakerformtoggled, CodemakerTarget, CodebreakerTarget, isPlayer1turn, Turn, Checked, Secret, PUSH_TABLE } = props;
 
         this.state = {
             Codemakerformtoggled: Codemakerformtoggled || false,
@@ -20,7 +20,7 @@ class Table extends React.Component {
             CodebreakerTarget: CodebreakerTarget || 0,
             isPlayer1turn: isPlayer1turn || true,
             Turn: Turn || -1,
-            Countchecked: Countchecked || 0,
+            Checked: Checked || [],
             Secret: Secret || [],
         }
 
@@ -38,7 +38,14 @@ class Table extends React.Component {
 
     toggleCodebreaker = (num, color) => {
         document.querySelector("div.Ansform").classList.toggle('active')
-        const { Codemakerformtoggled, Codebreakerformtoggled, CodemakerTarget, CodebreakerTarget, isPlayer1turn, Turn, Countchecked, Secret } = this.props;
+        const { Codemakerformtoggled,
+            Codebreakerformtoggled,
+            CodemakerTarget,
+            CodebreakerTarget,
+            isPlayer1turn,
+            Turn,
+            Checked,
+            Secret } = this.props;
 
         if (Codebreakerformtoggled) {
             this.rollCodebreakerturn(CodebreakerTarget, color)
@@ -50,7 +57,7 @@ class Table extends React.Component {
                 Codemakerformtoggled,
                 CodemakerTarget,
                 isPlayer1turn,
-                Countchecked,
+                Checked,
                 Turn,
                 Secret
             })
@@ -60,7 +67,7 @@ class Table extends React.Component {
 
     toggleCodemaker = (num, color) => {
         document.querySelector("div.Askform").classList.toggle('active')
-        const { Codemakerformtoggled, Codebreakerformtoggled, CodemakerTarget, CodebreakerTarget, isPlayer1turn, Turn, Countchecked, Secret } = this.props;
+        const { Codemakerformtoggled, Codebreakerformtoggled, CodemakerTarget, CodebreakerTarget, isPlayer1turn, Turn, Checked, Secret } = this.props;
         if (Codemakerformtoggled) {
             this.rollCodemakerturn(CodemakerTarget, color)
         }
@@ -71,7 +78,7 @@ class Table extends React.Component {
                 Codebreakerformtoggled,
                 CodebreakerTarget,
                 isPlayer1turn,
-                Countchecked,
+                Checked,
                 Turn,
                 Secret
             })
@@ -87,7 +94,7 @@ class Table extends React.Component {
             CodemakerTarget,
             CodebreakerTarget,
             isPlayer1turn,
-            Countchecked,
+            Checked,
             Turn,
             Secret } = this.props;
 
@@ -98,7 +105,7 @@ class Table extends React.Component {
                 Codebreakerformtoggled,
                 CodemakerTarget,
                 isPlayer1turn,
-                Countchecked: Countchecked + 1,
+                Checked: [...Checked,color],
                 Turn,
                 Secret
             })
@@ -109,7 +116,7 @@ class Table extends React.Component {
                 Codebreakerformtoggled,
                 CodemakerTarget,
                 isPlayer1turn,
-                Countchecked,
+                Checked,
                 Turn,
             })
         }
@@ -125,7 +132,7 @@ class Table extends React.Component {
             Codemakerformtoggled,
             CodemakerTarget,
             isPlayer1turn,
-            Countchecked,
+            Checked,
             Turn,
             Secret } = this.props;
 
@@ -136,7 +143,7 @@ class Table extends React.Component {
                 Codemakerformtoggled,
                 CodemakerTarget,
                 isPlayer1turn,
-                Countchecked: Countchecked + 1,
+                Checked: [...Checked,color],
                 Turn,
                 Secret
             })
@@ -147,7 +154,7 @@ class Table extends React.Component {
                 Codemakerformtoggled,
                 CodemakerTarget,
                 isPlayer1turn,
-                Countchecked,
+                Checked,
                 Turn,
                 Secret
             })
@@ -168,7 +175,7 @@ class Table extends React.Component {
         document.querySelector("div.Secretcodesetup").classList.toggle("active")
     }
 
-    toggleHistory= () => {
+    toggleHistory = () => {
         document.querySelector("div.Tablehistory").classList.toggle("active")
     }
 
@@ -179,7 +186,7 @@ class Table extends React.Component {
             CodemakerTarget,
             CodebreakerTarget,
             isPlayer1turn,
-            Countchecked,
+            Checked,
             Turn, Secret } = this.props;
 
         this.PUSH_TABLE({
@@ -188,7 +195,7 @@ class Table extends React.Component {
             Codemakerformtoggled,
             CodemakerTarget,
             isPlayer1turn: !isPlayer1turn,
-            Countchecked: 0,
+            Checked: [],
             Turn: Turn + 1,
             Secret
         })
@@ -203,7 +210,7 @@ class Table extends React.Component {
             CodemakerTarget,
             CodebreakerTarget,
             isPlayer1turn,
-            Countchecked,
+            Checked,
             Turn,
             Secret } = this.props;
 
@@ -213,7 +220,7 @@ class Table extends React.Component {
             Codemakerformtoggled,
             CodemakerTarget,
             isPlayer1turn: !isPlayer1turn,
-            Countchecked: 0,
+            Checked: [],
             Turn,
             Secret: [...Secret, color]
         })
@@ -227,7 +234,7 @@ class Table extends React.Component {
             Codemakerformtoggled,
             CodemakerTarget,
             isPlayer1turn,
-            Countchecked,
+            Checked,
             Turn,
             Secret } = this.props;
 
@@ -238,7 +245,7 @@ class Table extends React.Component {
             Codemakerformtoggled,
             CodemakerTarget,
             isPlayer1turn,
-            Countchecked,
+            Checked,
             Turn: 0,
             Secret
         })
@@ -248,14 +255,14 @@ class Table extends React.Component {
         debugger
         const {
             isPlayer1turn,
-            Countchecked,
+            Checked,
             Turn,
             Secret } = this.props;
 
 
         return (
             <div className={"Table"}>
-                <Formtable secret={Secret} beginGame={this.beginGame} pushSecret={this.pushSecret} toggleSetupform={this.toggleSetupform} toggleCodebreaker={this.toggleCodebreaker} toggleCodemaker={this.toggleCodemaker} toggleSecretform={this.toggleSecretform} />
+                <Formtable secret={Secret} isPlayer1turn={isPlayer1turn} beginGame={this.beginGame} pushSecret={this.pushSecret} toggleSetupform={this.toggleSetupform} toggleCodebreaker={this.toggleCodebreaker} toggleCodemaker={this.toggleCodemaker} toggleSecretform={this.toggleSecretform} />
                 <Statustable toggleHistory={this.toggleHistory} />
                 <Tablehistory toggleHistory={this.toggleHistory} />
 
@@ -267,7 +274,7 @@ class Table extends React.Component {
                 </div>
 
 
-                <div className={"isPlayerready " + ((Countchecked === 4 || (!isPlayer1turn && Countchecked > 0)) ? "active" : "")} onClick={() => this.rollTurns()}>
+                <div className={"isPlayerready " + ((Checked.length === 4 || (!isPlayer1turn && Checked.length > 0)) ? "active" : "")} onClick={() => this.rollTurns()}>
                     <span>Ready</span>
                     <span className="status">Tap here to continue</span>
                 </div>

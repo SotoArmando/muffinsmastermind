@@ -13,24 +13,24 @@ function Tablehistory(props) {
         CodebreakerTarget,
         isPlayer1turn,
         Turn,
-        Countchecked,
+        Checked,
         Secret }) => {
 
         if (Turn === -1) {
             if (Secret.length === 0) {
                 return `Welcome :D here will appear all plays you make`
             } else {
-                return <span><span className="a">Player {(Turn % 2 == 0) ? "1" : "2"}</span> has tapped his secretcode color [{Countchecked}]</span>
+                return <span><span className="a">Player {(Turn % 2 == 0) ? "1" : "2"}</span> has tapped his secretcode color #{Secret.length}</span>
             }
 
         } else {
-            if (Countchecked === 0) {
+            if (Checked === 0) {
                 if (Codebreakerformtoggled || Codemakerformtoggled) {
                     return (Turn % 2 == 0) ? `Codemaker(Player 1) opened his Colors form` : `Codebreaker(Player 2) opened his Colors form`
                 }
 
             } else {
-                return <span><span className="a">Player {(Turn % 2 == 0) ? "1" : "2"}</span> has choosen color [{Countchecked}]</span>
+                return <span><span className="a">Player {(Turn % 2 == 0) ? "1" : "2"}</span> has choosen color #{Checked.length} - {Checked[Checked.length-1]}</span>
             }
 
         }
