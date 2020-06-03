@@ -1,0 +1,37 @@
+div.row.centered {
+    display: flex;
+    justify-content: center;
+}
+
+div.row.row0 {
+    width: 100%;
+    justify-content: space-around;
+}
+
+
+
+div.col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div.col.col0 {
+    width: 100%;
+    line-height: 1.85;
+}
+
+@media only screen and (max-width: 320px) {
+    div.hidden320 {
+        display: none !important;
+    }
+}
+
+
+@media only screen and (max-width: 1024px) {
+    div.row.shorten1024 {
+        max-width: 20rem;
+        overflow: hidden;
+    }
+}
