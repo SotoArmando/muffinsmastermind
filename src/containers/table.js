@@ -96,7 +96,7 @@ class Table extends React.Component {
             Codemakerformtoggled,
             Codemakerchecked,
         } = this.state;
-        debugger;
+      
         if (e.classList.length == 2) {
             this.setState({
                 ...this.state,
@@ -180,7 +180,7 @@ class Table extends React.Component {
     }
 
     pushSecret(color) {
-        debugger;
+  
         const {
             Secret } = this.state;
 
@@ -208,8 +208,7 @@ class Table extends React.Component {
             Turn,
             Secret } = this.state;
 
-        debugger;
-
+    
         return (
             <div className={"Table"}>
                 <Formtable secret={Secret} isPlayer1turn={isPlayer1turn} beginGame={this.beginGame} pushSecret={this.pushSecret} toggleSetupform={this.toggleSetupform} toggleCodebreaker={this.toggleCodebreaker} toggleCodemaker={this.toggleCodemaker} toggleSecretform={this.toggleSecretform} />

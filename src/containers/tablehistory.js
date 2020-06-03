@@ -6,8 +6,9 @@ function Tablehistory(props) {
     const { table, toggleHistory } = props;
     let isTurn = true;
 
-    const returnMsg = ({ CodemakerHist,
+    const returnMsg = ({ 
         CodebreakerHist,
+        CodemakerHist,
         Codemakerformtoggled,
         Codebreakerformtoggled,
         CodemakerTarget,
@@ -26,14 +27,10 @@ function Tablehistory(props) {
             }
 
         } else {
-            if (Codebreakerchecked === 0) {
-                if (Codebreakerformtoggled || Codemakerformtoggled) {
-                    return (Turn % 2 == 0) ? `Codemaker(Player 1) opened his Colors form` : `Codebreaker(Player 2) opened his Colors form`
-                }
-
-            } else {
-                return <span><span className="a">Player {(Turn % 2 == 0) ? "1" : "2"}</span> has choosen color #{Codebreakerchecked.length} - {Codebreakerchecked[Codebreakerchecked.length - 1]}</span>
-            }
+   
+            const colors = (Turn % 2 == 0) ? Codebreakerchecked : Codemakerchecked
+            return <span><span className="a">Player {(Turn % 2 == 0) ? "1" : "2"}</span> has choosen colors {colors.join(" ")}</span>
+            
 
         }
     }

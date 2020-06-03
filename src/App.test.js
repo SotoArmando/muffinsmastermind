@@ -1,10 +1,10 @@
 /* eslint no-undef: 0  react/jsx-filename-extension: 0 */
 import React from 'react';
-import App from '../App';
+import App from './App';
 import { render, fireEvent } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import rootReducer from '../reducers/index';
+import rootReducer from './reducers/index';
 
 const store = createStore(rootReducer);
 

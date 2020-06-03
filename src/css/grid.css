@@ -9,13 +9,6 @@ div.row.row0 {
 }
 
 
-@media only screen and (max-width: 1024px) {
-    div.row.shorten1024 {
-        max-width: 20rem;
-        overflow: hidden;
-    }
-  }
-
 
 div.col {
     display: flex;
@@ -27,4 +20,18 @@ div.col {
 div.col.col0 {
     width: 100%;
     line-height: 1.85;
+}
+
+@media only screen and (max-width: 320px) {
+    div.hidden320 {
+        display: none !important;
+    }
+}
+
+
+@media only screen and (max-width: 1024px) {
+    div.row.shorten1024 {
+        max-width: 20rem;
+        overflow: hidden;
+    }
 }

@@ -17,6 +17,8 @@ div.Ansform {
     flex-wrap: wrap;
     padding-bottom: 4rem;
     box-sizing: border-box;
+    overflow-y: scroll;
+    max-height: 100%;
 }
 
 div.Ansform > .option {

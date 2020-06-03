@@ -1,11 +1,13 @@
+
+
 /* BEGIN Table */
 
 div.Table {
     display: flex;
-    padding-top: 5rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
 }
 
 div.Table.inactive {
@@ -175,11 +177,15 @@ div.isPlayerready {
     flex-direction: column;
     cursor: pointer;
     z-index: 101;
+    transform: translateY(4rem);
+    transition-duration: 357ms;
 }
 
 div.isPlayerready.active {
     opacity: 1;
     pointer-events: all;
+    transform: translateY(0rem);
+    transition-duration: 357ms;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -307,11 +313,10 @@ div.Tablehistory {
     top: 0;
     background-color: rgba(0, 0, 0, 15);
     box-shadow: black 1px 1px;
-    height: 100vh;
     width: 50vw;
     pointer-events: none;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     align-items: center;
     display: flex;
@@ -319,9 +324,44 @@ div.Tablehistory {
     transition-duration: 367ms;
     transform: translateX(-100%);
     overflow-y: scroll;
+    max-height: 100%;
 }
 
 @media only screen and (max-width: 1024px) { 
+    div.Secretcodesetup {
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: rgba(0, 0, 0, 15);
+        box-shadow: black 1px 1px;
+        min-height: 100vh;
+        width: 100%;
+        opacity: 0;
+        pointer-events: none;
+        display: flex;
+        justify-content: normal;
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        z-index: 100;
+        transition-duration: 367ms;
+        max-width: 100vw;
+        max-height: 100%;
+        overflow-y: scroll;
+    }
+
+    div.Secretcode {
+        padding: 4rem 0rem;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    div.Secretcode .Socket {
+        margin-bottom: 1rem;
+    }
+
     div.Tablehistory { 
         width: 100vw;
     }

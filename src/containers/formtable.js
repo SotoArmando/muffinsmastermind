@@ -22,7 +22,7 @@ function Formtable(props) {
             return (
                 <div className="col col0" onClick={() => toggleSetupform()}>
                     <span>Game Ready</span>
-                    <span className="status">Go ahead and play :D</span>
+                    <span className="status">Go play!</span>
                 </div>
             )
         } else {
@@ -44,7 +44,7 @@ function Formtable(props) {
             <Secretcodesetup beginGame={beginGame} toggleSecretform={toggleSecretform} pushSecret={pushSecret} secret={secret} />
 
             {returnStatus(secretlength)}
-            <div className="row row0 centered">
+            <div className="row row0 centered hidden320">
                 <div className={"col playerlabel "+((!isPlayer1turn)?"active":"")}>
                     <span className="">Codemaker</span>
                 </div>
