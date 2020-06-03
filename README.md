@@ -1,17 +1,23 @@
-# Muffin Bookstore CMS 
+# MuffinsMastermind!
 
-Muffin Calculator is a good way for me to improve my features done in REACT.
-An Easy and Cool Calculator it lets ya go deal with numbers as any other calculator... we built apple.
+Muffin Mastermind is a good way for me to improve my features done in REACT.
 
+## Features
+
+- Compatible with Mobile Screens  
+- Solo play
+- Friend vs Friend play :D. 
+- Round History
+  
 ## Instructions
 
 1. Tap [Win + R] => type cmd then Tap [enter].
 2. git clone https://github.com/SotoArmando/muffinsmastermind
 3. cd muffinsmastermind
 4. npm install
-5. npm start
+5. npm start 
 
-- Live Link https://muffinsmastermind.herokuapp.com/
+Live https://muffinsmastermind.herokuapp.com/
 
 ## Built With
 
@@ -25,8 +31,6 @@ An Easy and Cool Calculator it lets ya go deal with numbers as any other calcula
 - Github: [@SotoArmando](https://github.com/SotoArmando)
 - Twitter: [@FeatSotoArmando](https://twitter.com/FeatSotoArmando)
 - Linkedin: [@Armando Soto](https://linkedin.com/armando-josé-soto-263455124)
-
-
 
 ## 🤝 Contributing
 
