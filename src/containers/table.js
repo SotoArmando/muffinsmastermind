@@ -96,7 +96,7 @@ class Table extends React.Component {
             Codemakerformtoggled,
             Codemakerchecked,
         } = this.state;
-      
+
         if (e.classList.length == 2) {
             this.setState({
                 ...this.state,
@@ -154,6 +154,9 @@ class Table extends React.Component {
         document.querySelector("div.Tablehistory").classList.toggle("active")
     }
 
+    toggleWinner = () => {
+        document.querySelector("div.Winner").classList.toggle("active")
+    }
     rollTurns() {
         const {
             CodemakerHist,
@@ -175,12 +178,12 @@ class Table extends React.Component {
             Turn: Turn + 1,
         })
 
-        this.PUSH_TABLE({...this.state})
+        this.PUSH_TABLE({ ...this.state })
 
     }
 
     pushSecret(color) {
-  
+
         const {
             Secret } = this.state;
 
@@ -198,6 +201,23 @@ class Table extends React.Component {
         })
     }
 
+    
+    resetGame() {
+        this.setState({
+            CodemakerHist: [],
+            CodebreakerHist: [],
+            Codemakerformtoggled: false,
+            Codebreakerformtoggled: false,
+            CodemakerTarget: 0,
+            CodebreakerTarget: 0,
+            isPlayer1turn: true,
+            Turn: -1,
+            Codebreakerchecked: ["","","",""],
+            Codemakerchecked: ["","","",""],
+            Secret: [],
+        })
+    }
+
     render() {
         const {
             CodemakerHist,
@@ -208,7 +228,13 @@ class Table extends React.Component {
             Turn,
             Secret } = this.state;
 
-    
+
+        const cond = (CodebreakerHist.length > 0) ? CodebreakerHist[CodebreakerHist.length-1].join("") : "0" 
+        if (cond === Secret.join("") && document.querySelector("div.Winner").classList.length === 1) {
+            this.toggleWinner();
+        }
+
+        debugger;
         return (
             <div className={"Table"}>
                 <Formtable secret={Secret} isPlayer1turn={isPlayer1turn} beginGame={this.beginGame} pushSecret={this.pushSecret} toggleSetupform={this.toggleSetupform} toggleCodebreaker={this.toggleCodebreaker} toggleCodemaker={this.toggleCodemaker} toggleSecretform={this.toggleSecretform} />
@@ -223,6 +249,19 @@ class Table extends React.Component {
                 </div>
 
 
+                <div className="Winner">
+                    <span className="head1">We got a winner</span>
+                    <div className="col">
+                        <span>Congrats to the Codebreaker/Codemaker</span>
+                        <span>You got your code persist 10 round/ You discovered the code in #rounds</span>
+                        <span>CONGRATS!</span>
+                    </div>
+                    <div className="row centered">
+                        <span className="span0 border0 useraction margin1" onClick={() => {this.resetGame(); this.toggleWinner();}}>Play Again</span>
+                        <span className="span0 border0 useraction margin1">Share</span>
+                    </div>
+                    <span className="Close"  onClick={() => this.toggleWinner()}>Close</span>
+                </div>
                 <div className={"isPlayerready " + ((Codebreakerchecked.filter(e => e != "").length === 4 || (!isPlayer1turn && Codemakerchecked.filter(e => e != "").length > 0)) ? "active" : "")} onClick={() => this.rollTurns()}>
                     <span>Ready</span>
                     <span className="status">Tap here to continue</span>

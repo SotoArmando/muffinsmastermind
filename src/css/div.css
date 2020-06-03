@@ -306,13 +306,20 @@ div.Secretcode {
 }
 /* END Secretcodesetup */
 /* BEGIN Tablehistory */
+div.Tablehistory {
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
 
+div.Tablehistory::-webkit-scrollbar {
+    width: 0px; /* For Chrome, Safari, and Opera */
+}
 div.Tablehistory {
     position: absolute;
     left: 0;
     top: 0;
-    background-color: rgba(0, 0, 0, 15);
-    box-shadow: black 1px 1px;
+    background-image: linear-gradient(45deg, black, rgba(0,0,0,.30),transparent);
+
     width: 50vw;
     pointer-events: none;
     display: flex;
@@ -375,6 +382,7 @@ div.Tablehistory.active {
 
 
 /* END Tablehistory */
+/* BEGIN playerlabel */
 div.playerlabel > span {
     color:rgba(255,255,255, .15) ;
 }
@@ -383,3 +391,37 @@ div.playerlabel.active > span {
     transition-duration: 357ms;
 }
 
+/* END playerlabel */
+/* BEGIN Winner */
+
+    div.Winner {
+        position: fixed;
+        left:0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-self: center;
+        flex-direction: column;
+        background-image: radial-gradient(rgba(0,0,0.15),rgba(0,0,0,.30),transparent);
+        pointer-events: none;
+        opacity: 0;
+        transition-duration: 357ms;
+        transform: scale(.75);   
+        z-index: 200;
+    }
+
+
+    div.Winner.active {
+        pointer-events: all;
+        opacity: 1;
+        transition-duration: 357ms;
+        transform: scale(1);
+        transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.5);
+    }
+    div.Winner > div.col > span:last-of-type {
+        text-decoration: underline;
+    } 
+    
+/* END Winner */
