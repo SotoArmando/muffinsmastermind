@@ -1,0 +1,29 @@
+div.ball {
+    min-height: 5rem;
+    min-width: 5rem;
+    border-radius: 10rem;
+}
+
+div.ball.red {
+    background-color: red;
+}
+
+div.ball.blue {
+    background-color: blue;
+}
+
+div.ball.green {
+    background-color: green;
+}
+
+div.ball.yellow {
+    background-color: yellow;
+}
+
+div.ball.black {
+    background-color: black;
+}
+
+div.ball.white {
+    background-color: white;
+}
