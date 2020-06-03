@@ -425,3 +425,32 @@ div.playerlabel.active > span {
     } 
     
 /* END Winner */
+
+div.Playersquestion {
+    display: none;
+    opacity: 0;
+    flex-direction: column;
+}
+
+div.Playersquestion.displayed {
+    display: flex;
+}
+div.Playersquestion.active {
+    opacity: 1;
+    transition-duration: 357ms;
+}
+
+div.Playerssecondquestion {
+    display: none;
+    opacity: 0;
+    flex-direction: column;
+}
+
+div.Playerssecondquestion.displayed {
+    display: flex;
+}
+
+div.Playerssecondquestion.active {
+    opacity: 1;
+    transition-duration: 357ms;
+}

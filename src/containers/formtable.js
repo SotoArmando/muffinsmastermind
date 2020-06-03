@@ -7,12 +7,15 @@ import Secretcodesetup from '../components/secretcodesetup';
 
 function Formtable(props) {
     const { toggleCodemaker,
+        toggleQuestions,
         beginGame,
         toggleCodebreaker,
         toggleSetupform,
         toggleSecretform,
         pushSecret,
         isPlayer1turn,
+        isOneplayer,
+        setisOneplayer,
         secret } = props;
 
     const secretlength = secret.length;
@@ -40,15 +43,15 @@ function Formtable(props) {
         <div className="Formtable">
             <Askform toggleCodemaker={toggleCodemaker} />
             <Ansform toggleCodebreaker={toggleCodebreaker} />
-            <Setupform toggleSetupform={toggleSetupform} toggleSecretform={toggleSecretform} />
-            <Secretcodesetup beginGame={beginGame} toggleSecretform={toggleSecretform} pushSecret={pushSecret} secret={secret} />
+            <Setupform pushSecret={pushSecret} setisOneplayer={setisOneplayer} isOneplayer={isOneplayer} toggleQuestions={toggleQuestions} toggleSetupform={toggleSetupform} toggleSecretform={toggleSecretform} />
+            <Secretcodesetup isOneplayer={isOneplayer} beginGame={beginGame} toggleSecretform={toggleSecretform} pushSecret={pushSecret} secret={secret} />
 
             {returnStatus(secretlength)}
             <div className="row row0 centered hidden320">
-                <div className={"col playerlabel "+((!isPlayer1turn)?"active":"")}>
+                <div className={"col playerlabel " + ((!isPlayer1turn) ? "active" : "")}>
                     <span className="">Codemaker</span>
                 </div>
-                <div className={"col playerlabel "+((isPlayer1turn)?"active":"")}>
+                <div className={"col playerlabel " + ((isPlayer1turn) ? "active" : "")}>
                     <span className="">Codebreaker</span>
                 </div>
             </div>

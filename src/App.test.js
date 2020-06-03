@@ -52,7 +52,7 @@ test('Should NOT Open: Case user trigges Codebreaker forms before fist-time Setu
     expect(container.querySelector("div.Askform.active")).not.toBeInTheDocument();
 });
 
-test('Should Open: case Codemaker form user-trigged', () => {
+test('Should Not Open: case Codemaker form user-trigged before Codebreaker plays', () => {
     const { container } = render(
         <Provider store={store}>
             <React.StrictMode>
@@ -61,22 +61,9 @@ test('Should Open: case Codemaker form user-trigged', () => {
         </Provider>);
     SetupCodeRedBlueRedBlue(container)
     fireEvent.click(container.querySelector(triggerFirstCodemakerCell))
-    expect(container.querySelector("div.Ansform.active")).toBeInTheDocument();
+    expect(container.querySelector("div.Ansform.active")).not.toBeInTheDocument();
 });
 
-test('Should Open: case Codebreaker form user-trigged', () => {
-    const { container } = render(
-        <Provider store={store}>
-            <React.StrictMode>
-                <App />
-            </React.StrictMode>
-        </Provider>);
-
-    SetupCodeRedBlueRedBlue(container);
-
-    fireEvent.click(container.querySelector(triggerFirstCodebreakerCell))
-    expect(container.querySelector("div.Ansform.active")).toBeInTheDocument();
-});
 
 test('Should Open: case First-time Setup form user-trigged', () => {
     const { container } = render(
