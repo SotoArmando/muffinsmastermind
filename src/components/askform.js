@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 function Askform(props) {
@@ -15,5 +16,8 @@ function Askform(props) {
     );
 }
 
+Askform.propTypes = {
+    toggleCodemaker: PropTypes.func.isRequired,
+};
 
 export default Askform;

@@ -1,10 +1,8 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 
 function Secretcodesetup(props) {
     const { isOneplayer, beginGame, toggleSecretform, pushSecret, secret } = props;
-    const asktimes = 10;
-    const active = 0;
     const secretlength = secret.length;
 
     const returnClosebutton = (secretlength) => {
@@ -53,5 +51,12 @@ function Secretcodesetup(props) {
     );
 }
 
+Secretcodesetup.propTypes = {
+    isOneplayer: PropTypes.bool.isRequired,
+    beginGame: PropTypes.func.array.isRequired,
+    toggleSecretform: PropTypes.func.isRequired,
+    pushSecret: PropTypes.func.bool.isRequired,
+    secret: PropTypes.arr.isRequired,
+};
 
 export default Secretcodesetup;

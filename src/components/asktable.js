@@ -1,9 +1,9 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 
 function Asktable(props) {
 
-    const { toggleCodebreaker, CodebreakerHist, Codebreakerchecked, isPlayerready, inactive, roll, turn } = props;
+    const { toggleCodebreaker, CodebreakerHist, Codebreakerchecked, inactive, turn } = props;
 
     const focus = Math.floor(turn / 2);
     const active = (turn % 2) === 0;
@@ -39,6 +39,16 @@ function Asktable(props) {
     );
 
 }
+
+Asktable.propTypes = {
+    toggleCodebreaker: PropTypes.func.isRequired,
+    CodebreakerHist: PropTypes.func.isRequired,
+    Codebreakerchecked: PropTypes.func.isRequired,
+    isPlayerready: PropTypes.bool.isRequired,
+    inactive: PropTypes.bool.isRequired,
+    roll: PropTypes.func.isRequired,
+    turn: PropTypes.bool.isRequired
+};
 
 
 export default Asktable;
