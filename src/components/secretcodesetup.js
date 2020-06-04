@@ -2,32 +2,41 @@ import React from 'react';
 
 
 function Secretcodesetup(props) {
-    const { beginGame, toggleSecretform, pushSecret, secret } = props;
+    const { isOneplayer, beginGame, toggleSecretform, pushSecret, secret } = props;
     const asktimes = 10;
     const active = 0;
     const secretlength = secret.length;
 
     const returnClosebutton = (secretlength) => {
         if (secretlength === 4) {
-            return <span className="Close" onClick={() => { toggleSecretform();beginGame(); }} >Tap here to continue</span>
+            return <span className="Close" onClick={() => { toggleSecretform(); beginGame(); }} >Tap here to continue</span>
         }
         else {
             return <span className="Close" onClick={() => toggleSecretform()} >Close ({4 - secretlength} left)</span>
         }
     }
+    const returnSecretdisplay = () => {
+        const colors = (!isOneplayer) ? [
+            ((secretlength > 0) ? secret[0] : ""),
+            ((secretlength > 1) ? secret[1] : ""),
+            ((secretlength > 2) ? secret[2] : ""),
+            ((secretlength > 3) ? secret[3] : "")
+        ] : ["white", "white", "white", "white"]
 
+        return <div className="Secretcode">
+            <div className="Socket"><div className={"ball " + colors[0]}></div></div>
+            <div className="Socket"><div className={"ball " + colors[1]}></div></div>
+            <div className="Socket"><div className={"ball " + colors[2]}></div></div>
+            <div className="Socket"><div className={"ball " + colors[3]}></div></div>
+        </div>
+    }
     return (
         <div className="Secretcodesetup">
             <div className="row centered">
-                <div className="Secretcode">
-                    <div className="Socket"><div className={"ball " + ((secretlength > 0) ? secret[0] : "")}></div></div>
-                    <div className="Socket"><div className={"ball " + ((secretlength > 1) ? secret[1] : "")}></div></div>
-                    <div className="Socket"><div className={"ball " + ((secretlength > 2) ? secret[2] : "")}></div></div>
-                    <div className="Socket"><div className={"ball " + ((secretlength > 3) ? secret[3] : "")}></div></div>
-                </div>
+                {returnSecretdisplay()}
             </div>
             <div className="row centered">
-                <span className="margin0">Type your code!</span>
+                <span className="margin0">{isOneplayer ? "You will play as codebreaker. are you ready?" : "[Player 2] Create the code pattern."}</span>
             </div>
             <div className="row centered">
                 <div className="Secretcode">

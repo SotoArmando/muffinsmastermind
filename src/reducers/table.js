@@ -10,6 +10,7 @@ const initialState = [{
     Codebreakerchecked: ["","","",""],
     Codemakerchecked: ["","","",""],
     Secret: [],
+    Players: -1,
 }]
 
 const Table = (state = initialState, action) => {
