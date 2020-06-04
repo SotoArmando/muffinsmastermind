@@ -38,9 +38,9 @@ function Askstatus(props) {
 
 Askstatus.propTypes = {
     Codemakerchecked: PropTypes.func.isRequired,
-    CodemakerHist: PropTypes.func.array.isRequired,
+    CodemakerHist: PropTypes.array.isRequired,
     toggleCodemaker: PropTypes.func.isRequired,
-    inactive: PropTypes.func.bool.isRequired,
+    inactive: PropTypes.bool.isRequired,
     turn: PropTypes.bool.isRequired,
 };
 

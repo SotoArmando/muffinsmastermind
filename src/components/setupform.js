@@ -37,9 +37,9 @@ function Setupform(props) {
 
 Setupform.propTypes = {
     pushSecret: PropTypes.func.isRequired,
-    setisOneplayer: PropTypes.func.array.isRequired,
+    setisOneplayer: PropTypes.func.isRequired,
     toggleQuestions: PropTypes.func.isRequired,
-    toggleSetupform: PropTypes.func.bool.isRequired,
+    toggleSetupform: PropTypes.func.isRequired,
     toggleSecretform: PropTypes.func.isRequired,
 };
 

@@ -53,10 +53,10 @@ function Secretcodesetup(props) {
 
 Secretcodesetup.propTypes = {
     isOneplayer: PropTypes.bool.isRequired,
-    beginGame: PropTypes.func.array.isRequired,
+    beginGame: PropTypes.func.isRequired,
     toggleSecretform: PropTypes.func.isRequired,
-    pushSecret: PropTypes.func.bool.isRequired,
-    secret: PropTypes.arr.isRequired,
+    pushSecret: PropTypes.func.isRequired,
+    secret: PropTypes.array.isRequired,
 };
 
 export default Secretcodesetup;
