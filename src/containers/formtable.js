@@ -3,7 +3,7 @@ import Askform from '../components/askform';
 import Ansform from '../components/ansform';
 import Setupform from '../components/setupform';
 import Secretcodesetup from '../components/secretcodesetup';
-
+import PropTypes from 'prop-types';
 
 function Formtable(props) {
     const { toggleCodemaker,
@@ -59,5 +59,18 @@ function Formtable(props) {
     );
 }
 
+Formtable.propTypes = {
+    toggleCodemaker: PropTypes.func.isRequired,
+    toggleQuestions: PropTypes.func.isRequired,
+    toggleCodebreaker: PropTypes.func.isRequired,
+    toggleSetupform: PropTypes.func.isRequired,
+    toggleSecretform: PropTypes.func.isRequired,
+    pushSecret: PropTypes.func.isRequired,
+    isPlayer1turn: PropTypes.func.isRequired,
+    isOneplayer: PropTypes.func.isRequired,
+    setisOneplayer: PropTypes.func.isRequired,
+    secret: PropTypes.array.isRequired,
+    beginGame: PropTypes.func.isRequired,
+};
 
 export default Formtable;

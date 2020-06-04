@@ -1,11 +1,8 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 
 function Ansform(props) {
     const { toggleCodebreaker } = props;
-    const asktimes = 10;
-    const active = 0;
-
 
     return (
         <div className="Ansform">
@@ -20,5 +17,8 @@ function Ansform(props) {
     );
 }
 
+Ansform.propTypes = {
+    toggleCodebreaker: PropTypes.func.isRequired,
+};
 
 export default Ansform;
