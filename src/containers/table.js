@@ -117,8 +117,6 @@ class Table extends React.Component {
                 Codemakerchecked: [...Codemakerchecked.slice(0, num % 4), color, ...Codemakerchecked.slice((num % 4) + 1)],
             })
         }
-        e.classList.remove("red", "blue", "green", "yellow", "white", "black");
-        e.classList.toggle(color);
     }
 
     rollCodebreakerturn = (num, color) => {
@@ -140,8 +138,6 @@ class Table extends React.Component {
                 Codebreakerchecked: [...Codebreakerchecked.slice(0, num % 4), color, ...Codebreakerchecked.slice((num % 4) + 1)],
             })
         }
-        e.classList.remove("red", "blue", "green", "yellow", "white", "black");
-        e.classList.toggle(color);
     }
 
     toggleSetupform = (Player1role) => {
