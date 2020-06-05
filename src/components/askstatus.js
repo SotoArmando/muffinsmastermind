@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 function Askstatus(props) {
@@ -7,9 +8,7 @@ function Askstatus(props) {
     const focus = Math.floor(turn / 2);
     const active = (turn % 2) === 1;
 
-    const returnKey = (index) => {
-        return "Askstatus" + Date().toLocaleString() + index
-    }
+
     const returnasktimesKey = (index) => {
         return "Askstatusasktimes" + Date().toLocaleString() + index
     }
@@ -37,5 +36,12 @@ function Askstatus(props) {
     );
 }
 
+Askstatus.propTypes = {
+    Codemakerchecked: PropTypes.func.isRequired,
+    CodemakerHist: PropTypes.array.isRequired,
+    toggleCodemaker: PropTypes.func.isRequired,
+    inactive: PropTypes.bool.isRequired,
+    turn: PropTypes.bool.isRequired,
+};
 
 export default Askstatus;

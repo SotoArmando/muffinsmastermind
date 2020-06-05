@@ -56,8 +56,7 @@ class Table extends React.Component {
         this.PUSH_TABLE = PUSH_TABLE.bind(this);
     }
 
-    toggleCodebreaker = (num, color) => {
-        debugger;
+    toggleCodebreaker(num, color) {
         document.querySelector("div.Ansform").classList.toggle('active')
         const {
             Codebreakerformtoggled,
@@ -77,7 +76,7 @@ class Table extends React.Component {
 
     }
 
-    toggleCodemaker = (num, color) => {
+    toggleCodemaker(num, color) {
         document.querySelector("div.Askform").classList.toggle('active')
         const {
             Codemakerformtoggled,
@@ -97,7 +96,7 @@ class Table extends React.Component {
 
     }
 
-    rollCodemakerturn = (num, color) => {
+    rollCodemakerturn(num, color) {
         const e = document.querySelector(".Askstatus .Socket.n" + num)
         const {
             Codemakerformtoggled,
@@ -119,7 +118,7 @@ class Table extends React.Component {
         }
     }
 
-    rollCodebreakerturn = (num, color) => {
+    rollCodebreakerturn(num, color) {
         const e = document.querySelector(".Asktable .Socket.n" + num)
         const {
             Codebreakerchecked,
@@ -140,7 +139,7 @@ class Table extends React.Component {
         }
     }
 
-    toggleSetupform = (Player1role) => {
+    toggleSetupform() {
         const { Turn } = this.state;
         if (Turn === -1) {
             document.querySelector("div.Setupform").classList.toggle("active")
@@ -148,20 +147,19 @@ class Table extends React.Component {
 
     }
 
-    toggleSecretform = () => {
+    toggleSecretform() {
         document.querySelector("div.Secretcodesetup").classList.toggle("active")
     }
 
-    toggleHistory = () => {
+    toggleHistory() {
         document.querySelector("div.Tablehistory").classList.toggle("active")
     }
 
-    toggleWinner = () => {
+    toggleWinner() {
         document.querySelector("div.Winner").classList.toggle("active")
     }
     rollTurns() {
         const {
-            dummyplayer,
             CodemakerHist,
             CodebreakerHist,
             Codebreakerformtoggled,
@@ -171,16 +169,16 @@ class Table extends React.Component {
             Codemakerchecked,
             isOneplayer,
             Secret } = this.state;
-            
+
         const player = Player();
-        const hist  =player.getCodemakerplay(Codebreakerchecked,Secret);
-        debugger;
+        const hist = player.getCodemakerplay(Codebreakerchecked, Secret);
+        
         if (isOneplayer) {
 
             this.setState({
                 ...this.state,
                 CodebreakerHist: [...CodebreakerHist, Codebreakerchecked],
-                CodemakerHist: [...CodemakerHist,hist ],
+                CodemakerHist: [...CodemakerHist, hist],
                 Codebreakerformtoggled: false,
                 Codebreakerchecked: ["", "", "", ""],
                 Codemakerchecked: ["", "", "", ""],
@@ -232,7 +230,6 @@ class Table extends React.Component {
     }
 
     setisOneplayer(val) {
-        const { isOneplayer } = this.state;
         this.setState({ ...this.state, isOneplayer: val })
     }
 
@@ -253,7 +250,7 @@ class Table extends React.Component {
     }
 
     toggleQuestions() {
-        debugger;
+        
         const e = document.querySelector("div.Playersquestion")
         const e1 = document.querySelector("div.Playerssecondquestion")
 
@@ -283,7 +280,7 @@ class Table extends React.Component {
             this.toggleWinner();
         }
 
-        debugger;
+        
         return (
             <div className={"Table"}>
                 <Formtable setisOneplayer={this.setisOneplayer} isOneplayer={isOneplayer} toggleQuestions={this.toggleQuestions} secret={Secret} isPlayer1turn={isPlayer1turn} beginGame={this.beginGame} pushSecret={this.pushSecret} toggleSetupform={this.toggleSetupform} toggleCodebreaker={this.toggleCodebreaker} toggleCodemaker={this.toggleCodemaker} toggleSecretform={this.toggleSecretform} />
@@ -330,10 +327,24 @@ const mapDispatchToProps = dispatch => ({
     PUSH_TABLE: table => dispatch({ type: 'PUSH_TABLE', table }),
 });
 
-
 Table.propTypes = {
+    CodemakerHist: PropTypes.array.isRequired,
+    CodebreakerHist: PropTypes.array.isRequired,
+    Codemakerformtoggled: PropTypes.bool.isRequired,
+    Codebreakerformtoggled: PropTypes.bool.isRequired,
+    CodemakerTarget: PropTypes.number.isRequired,
+    CodebreakerTarget: PropTypes.number.isRequired,
+    isPlayer1turn: PropTypes.bool.isRequired,
+    Turn: PropTypes.number.isRequired,
+    Codebreakerchecked: PropTypes.array.isRequired,
+    Codemakerchecked: PropTypes.array.isRequired,
+    Secret: PropTypes.array.isRequired,
+    isOneplayer: PropTypes.bool.isRequired,
+    dummyplayer: PropTypes.func.isRequired,
     PUSH_TABLE: PropTypes.func.isRequired,
 };
+    
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Table);
 

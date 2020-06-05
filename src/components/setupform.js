@@ -1,9 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import tablelogic from '../logic/table';
+import PropTypes from 'prop-types';
 
 function Setupform(props) {
-    const { pushSecret, isOneplayer, setisOneplayer, toggleQuestions, toggleSetupform, toggleSecretform } = props;
+    const { pushSecret, setisOneplayer, toggleQuestions, toggleSetupform, toggleSecretform } = props;
     const triggerPlayerOnemode = () => {
         toggleSetupform();
         toggleSecretform();
@@ -35,5 +35,12 @@ function Setupform(props) {
     );
 }
 
+Setupform.propTypes = {
+    pushSecret: PropTypes.func.isRequired,
+    setisOneplayer: PropTypes.func.isRequired,
+    toggleQuestions: PropTypes.func.isRequired,
+    toggleSetupform: PropTypes.func.isRequired,
+    toggleSecretform: PropTypes.func.isRequired,
+};
 
 export default Setupform;

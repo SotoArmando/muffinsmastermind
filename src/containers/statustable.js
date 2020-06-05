@@ -1,13 +1,9 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 
 function Statustable(props) {
     const { toggleHistory } = props;
-    const asktimes = 10;
-    const active = 0;
     
-    
-
     return (
         <div className="Statustable">
             <span className="status0 border0" onClick={() => toggleHistory()}>History</span>
@@ -18,6 +14,10 @@ function Statustable(props) {
         </div>
     );
 }
+
+Statustable.propTypes = {
+    toggleHistory: PropTypes.func.isRequired,
+};
 
 
 export default Statustable;

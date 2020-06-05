@@ -4,16 +4,8 @@ import PropTypes from 'prop-types';
 
 function Tablehistory(props) {
     const { table, toggleHistory } = props;
-    let isTurn = true;
 
     const returnMsg = ({ 
-        CodebreakerHist,
-        CodemakerHist,
-        Codemakerformtoggled,
-        Codebreakerformtoggled,
-        CodemakerTarget,
-        CodebreakerTarget,
-        isPlayer1turn,
         Turn,
         Codebreakerchecked,
         Codemakerchecked,
@@ -57,7 +49,8 @@ const mapStateToProps = (store) => {
 
 
 Tablehistory.propTypes = {
-    toggleHistory: PropTypes.func.isRequired
+    toggleHistory: PropTypes.func.isRequired,
+    table: PropTypes.array.isRequired,
 };
 
 export default connect(mapStateToProps)(Tablehistory);
