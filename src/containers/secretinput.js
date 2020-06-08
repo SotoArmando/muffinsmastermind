@@ -53,14 +53,17 @@ function Secretinput(props) {
 }
 
 Secretinput.propTypes = {
-    isOneplayer: PropTypes.bool.isRequired,
+    beginGame: PropTypes.func.isRequired,
     handleClick: PropTypes.func.isRequired,
+    tap_codemakersecret: PropTypes.func.isRequired,
+    Secret: PropTypes.array.isRequired,
+    isOneplayer: PropTypes.bool.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
     tap_codemakersecret: color => dispatch({ type: 'tap_codemakersecret', color: color }),
     tap_codebreakerchecked: color => dispatch({ type: 'tap_codebreakerchecked', color: color }),
-    beginGame: actionstate => dispatch({ type: 'UPDATE', actionstate: { Turn: 0 } }),
+    beginGame: () => dispatch({ type: 'UPDATE', actionstate: { Turn: 0 } }),
 });
 
 

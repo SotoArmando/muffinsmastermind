@@ -91,6 +91,7 @@ span.useraction {
 span.useraction .a{
     color:rgba(255,255,255,.34);
 }
+
 @media only screen and (max-width: 1024px) {
     span.hidden1024 {
         display: none;

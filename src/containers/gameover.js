@@ -1,8 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 function Gameover(props) {
-    
+
     const { pushTable, handleClick, rollTurns, resetGame, isThereWinner, state } = props;
     const { Codebreakerchecked, Codemakerchecked, Turn } = state;
     const isPlayer1turn = Turn % 2 === 0;
@@ -55,5 +56,30 @@ const mapDispatchtoProps = (dispatch) => ({
     }),
     rollTurns: turn => dispatch({ type: ((turn - 1) % 2 === 0) ? "endCodebreakerTurn" : "endCodemakerTurn", actionstate: { Turn: turn } }),
 });
+
+
+Gameover.propTypes = {
+    pushTable: PropTypes.func.isRequired,
+    handleClick: PropTypes.func.isRequired,
+    rollTurns: PropTypes.func.isRequired,
+    resetGame: PropTypes.func.isRequired,
+    isThereWinner: PropTypes.bool.isRequired,
+    state: PropTypes.exact({
+        CodemakerHist: PropTypes.array.isRequired,
+        CodebreakerHist: PropTypes.array.isRequired,
+        Codemakerformtoggled: PropTypes.bool.isRequired,
+        Codebreakerformtoggled: PropTypes.bool.isRequired,
+        CodemakerTarget: PropTypes.number.isRequired,
+        CodebreakerTarget: PropTypes.number.isRequired,
+        isPlayer1turn: PropTypes.bool.isRequired,
+        isOneplayer: PropTypes.bool.isRequired,
+        Turn: PropTypes.number.isRequired,
+        Codebreakerchecked: PropTypes.array.isRequired,
+        Codemakerchecked: PropTypes.array.isRequired,
+        Secret: PropTypes.array.isRequired,
+        Players: PropTypes.number.isRequired,
+    }),
+};
+
 
 export default connect(mapStateToProps, mapDispatchtoProps)(Gameover);

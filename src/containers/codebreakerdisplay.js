@@ -42,15 +42,15 @@ function Codebreakerdisplay(props) {
     );
 }
 
-// Codebreakerdisplay.propTypes = {
-//     toggleCodebreaker: PropTypes.func.isRequired,
-//     CodebreakerHist: PropTypes.func.isRequired,
-//     Codebreakerchecked: PropTypes.func.isRequired,
-//     isPlayerready: PropTypes.bool.isRequired,
-//     isActiveGame: PropTypes.bool.isRequired,
-//     roll: PropTypes.func.isRequired,
-//     turn: PropTypes.bool.isRequired
-// };
+
+Codebreakerdisplay.propTypes = {
+    CodebreakerHist: PropTypes.array.isRequired,
+    Codebreakerchecked: PropTypes.array.isRequired,
+    isActiveGame: PropTypes.bool.isRequired,
+    handleClick: PropTypes.func.isRequired,
+    updateTarget: PropTypes.func.isRequired,
+    Turn: PropTypes.number.isRequired
+};
 
 const mapDispatchtoProps = (dispatch) => ({
     updateTarget: target => dispatch({ type: 'UPDATE', actionstate: { CodebreakerTarget: target } }),

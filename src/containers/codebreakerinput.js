@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import calculator from '../logic/mastermind';
 
 function Codebreakerinput(props) {
     const { handleClick, tap_codebreakerchecked } = props;
@@ -25,6 +24,7 @@ const mapDispatchToProps = dispatch => ({
 
 Codebreakerinput.propTypes = {
     handleClick: PropTypes.func.isRequired,
+    tap_codebreakerchecked: PropTypes.func.isRequired,
 };
 
 export default connect(null, mapDispatchToProps)(Codebreakerinput);

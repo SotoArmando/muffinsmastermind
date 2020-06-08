@@ -18,7 +18,7 @@ function Setup(props) {
             <div className="Playersquestion displayed active">
                 <span className="margin0"> How many are going to play?</span>
                 <div className="row centered">
-                    <span className="option" onClick={() => { updateGamemode(false);handleClick("TOGGLE_CASE_GAMESETUPQUESTIONS"); }}>2 Players</span>
+                    <span className="option" onClick={() => { updateGamemode(false); handleClick("TOGGLE_CASE_GAMESETUPQUESTIONS"); }}>2 Players</span>
                     <span className="option" onClick={() => { triggerPlayerOnemode() }}>1 Player</span>
                 </div>
             </div>
@@ -42,6 +42,8 @@ const mapDispatchToProps = dispatch => ({
 
 Setup.propTypes = {
     handleClick: PropTypes.func.isRequired,
+    updateSecret: PropTypes.func.isRequired,
+    updateGamemode: PropTypes.func.isRequired
 };
 
 export default connect(null, mapDispatchToProps)(Setup);

@@ -21,6 +21,7 @@ const mapDispatchToProps = dispatch => ({
 
 Codemakerinput.propTypes = {
     handleClick: PropTypes.func.isRequired,
+    tap_codemakerchecked: PropTypes.func.isRequired,
 };
 
 export default connect(null, mapDispatchToProps)(Codemakerinput);

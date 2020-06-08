@@ -37,13 +37,14 @@ function Codemakerdisplay(props) {
     );
 }
 
-// Codemakerdisplay.propTypes = {
-//     Codemakerchecked: PropTypes.func.isRequired,
-//     CodemakerHist: PropTypes.array.isRequired,
-//     toggleCodemaker: PropTypes.func.isRequired,
-//     inactive: PropTypes.bool.isRequired,
-//     turn: PropTypes.bool.isRequired,
-// };
+Codemakerdisplay.propTypes = {
+    Codemakerchecked: PropTypes.array.isRequired,
+    CodemakerHist: PropTypes.array.isRequired,
+    updateTarget: PropTypes.func.isRequired,
+    handleClick: PropTypes.func.isRequired,
+    turn: PropTypes.number.isRequired,
+    isActiveGame: PropTypes.bool.isRequired,
+};
 
 const mapStateToProps = (state) => {
     const { CodemakerHist, Codemakerchecked } = state.mastermind;

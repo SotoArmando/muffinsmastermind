@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import Codemakerdisplay from './codemakerdisplay';
 import Prompter from '../components/prompter';
 import Bottomnavigationbar from '../components/bottomnavigationbar';
-import Player from '../logic/player';
 import operator from '../logic/operator';
 import Codebreakerdisplay from './codebreakerdisplay';
 
@@ -56,7 +55,7 @@ function Display(props) {
 }
 
 const mapStateToProps = (state) => {
-    const { Turn, Secret, Codebreakerchecked, CodebreakerHist } = state.mastermind;
+    const { Turn, Secret, CodebreakerHist } = state.mastermind;
 
     
     return {
@@ -68,21 +67,14 @@ const mapStateToProps = (state) => {
 
 };
 
-// Display.propTypes = {
-//     CodemakerHist: PropTypes.array.isRequired,
-//     CodebreakerHist: PropTypes.array.isRequired,
-//     Codemakerformtoggled: PropTypes.bool.isRequired,
-//     Codebreakerformtoggled: PropTypes.bool.isRequired,
-//     CodemakerTarget: PropTypes.number.isRequired,
-//     CodebreakerTarget: PropTypes.number.isRequired,
-//     isPlayer1turn: PropTypes.bool.isRequired,
-//     Turn: PropTypes.number.isRequired,
-//     Codebreakerchecked: PropTypes.array.isRequired,
-//     Codemakerchecked: PropTypes.array.isRequired,
-//     Secret: PropTypes.array.isRequired,
-//     isOneplayer: PropTypes.bool.isRequired,
-//     PUSH_TABLE: PropTypes.func.isRequired,
-// };
+
+Display.propTypes = {
+    CodemakerHist: PropTypes.array.isRequired,
+    Turn: PropTypes.number.isRequired,
+    isActiveGame: PropTypes.bool.isRequired,
+    isThereWinner: PropTypes.bool.isRequired,
+    isPlayer1Turn: PropTypes.bool.isRequired
+};
 
 
 

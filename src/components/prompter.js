@@ -22,18 +22,9 @@ function Prompter(props) {
     );
 }
 
-// Prompter.propTypes = {
-//     toggleCodemaker: PropTypes.func.isRequired,
-//     toggleQuestions: PropTypes.func.isRequired,
-//     toggleCodebreaker: PropTypes.func.isRequired,
-//     toggleSetupform: PropTypes.func.isRequired,
-//     toggleSecretform: PropTypes.func.isRequired,
-//     pushSecret: PropTypes.func.isRequired,
-//     isPlayer1turn: PropTypes.func.isRequired,
-//     isOneplayer: PropTypes.func.isRequired,
-//     setisOneplayer: PropTypes.func.isRequired,
-//     secret: PropTypes.array.isRequired,
-//     beginGame: PropTypes.func.isRequired,
-// };
+Prompter.propTypes = {
+    handleClick: PropTypes.func.isRequired,
+    isThereWinner: PropTypes.bool.isRequired,
+};
 
 export default Prompter;
