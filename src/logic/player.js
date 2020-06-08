@@ -6,6 +6,7 @@ export default () => ({
         return (d < e);
     },
     setDifficulty: (val) => { this.difficulty = val },
+    
     getNext: () => {
         const {
             isPlayer1turn,

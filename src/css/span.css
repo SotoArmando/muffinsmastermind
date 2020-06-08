@@ -97,3 +97,14 @@ span.useraction .a{
     }
 }
 
+pre {
+    padding: 5px;
+    margin: 5px;
+    text-align: left;
+    width: 100%;
+}
+.string { color: green; }
+.number { color: darkorange; }
+.boolean { color: blue; }
+.null { color: magenta; }
+.key { color: red; }

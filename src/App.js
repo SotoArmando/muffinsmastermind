@@ -1,5 +1,5 @@
 import React from 'react';
-import Table from './containers/table'
+import Display from './containers/display.js'
 import './App.css';
 import './index.css';
 import './css/div.css';
@@ -13,7 +13,7 @@ import './css/after.css';
 function App() {
   return (
     <div className="App">
-      <Table />
+      <Display />
     </div>
   );
 }

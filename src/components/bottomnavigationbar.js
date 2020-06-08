@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Statustable(props) {
-    const { toggleHistory } = props;
+function Bottomnavigationbar(props) {
+    const { handleClick } = props;
     
     return (
         <div className="Statustable">
-            <span className="status0 border0" onClick={() => toggleHistory()}>History</span>
+            <span className="status0 border0" onClick={() => handleClick("TOGGLE_CASE_GAMEHIST")}>History</span>
             <span className="status0 hidden1024">+ Mobile Friendly</span>
             <span className="status0 hidden1024">+ Redux</span>
             <span className="status0 hidden1024">+ Jest</span>
@@ -15,9 +15,9 @@ function Statustable(props) {
     );
 }
 
-Statustable.propTypes = {
-    toggleHistory: PropTypes.func.isRequired,
+Bottomnavigationbar.propTypes = {
+    handleClick: PropTypes.func.isRequired,
 };
 
 
-export default Statustable;
+export default Bottomnavigationbar;
