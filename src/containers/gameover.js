@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 function Gameover(props) {
 
     const { pushTable, handleClick, rollTurns, resetGame, isThereWinner, state } = props;
-    const { Codebreakerchecked, Codemakerchecked, Turn } = state;
+    const { Codebreakerchecked, Codemakerchecked, Turn, isOneplayer } = state;
     const isPlayer1turn = Turn % 2 === 0;
     return (
         <div className="col">
@@ -21,7 +21,7 @@ function Gameover(props) {
                 </div>
                 <span className="Close" onClick={() => handleClick("TOGGLE_CASE_GAMEWIN")}>Close</span>
             </div>
-            <div className={"isPlayerready " + ((Codebreakerchecked.filter(e => e != "").length === 4 || (!isPlayer1turn && Codemakerchecked.filter(e => e != "").length > 0)) ? "active" : "")} onClick={() => { rollTurns(Turn + 1); pushTable(state); }}>
+            <div className={"isPlayerready " + ((Codebreakerchecked.filter(e => e != "").length === 4 || (!isPlayer1turn && Codemakerchecked.filter(e => e != "").length > 0)) ? "active" : "")} onClick={() => { rollTurns(Turn + 1, isOneplayer); pushTable(state); }}>
                 <span>Done?</span>
                 <span className="status">Tap here to continue</span>
             </div>
@@ -54,7 +54,13 @@ const mapDispatchtoProps = (dispatch) => ({
             Players: -1,
         }
     }),
-    rollTurns: turn => dispatch({ type: ((turn - 1) % 2 === 0) ? "endCodebreakerTurn" : "endCodemakerTurn", actionstate: { Turn: turn } }),
+    rollTurns: (turn, isOneplayer) => {
+        dispatch({ type: ((turn - 1) % 2 === 0) ? "endCodebreakerTurn" : "endCodemakerTurn", actionstate: { Turn: turn } })
+        if (isOneplayer) {
+            dispatch({ type: "endCodemakerTurn", actionstate: { Turn: turn + 1 } })
+        }
+
+    },
 });
 
 

@@ -14,11 +14,11 @@ function Display(props) {
         isThereWinner,
         isPlayer1Turn,
         Turn } = props;
-    
-    
-    
+
+
+
     const handleClick = (type) => {
-        
+
         operator(type);
     }
 
@@ -57,7 +57,7 @@ function Display(props) {
 const mapStateToProps = (state) => {
     const { Turn, Secret, CodebreakerHist } = state.mastermind;
 
-    
+
     return {
         isActiveGame: (Turn >= 0),
         isThereWinner: ((CodebreakerHist.length === 0) ? false : (CodebreakerHist[CodebreakerHist.length - 1].join("") === Secret.join(""))),
