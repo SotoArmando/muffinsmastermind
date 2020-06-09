@@ -66,7 +66,6 @@ const mastermind = (state = mastermindinitialState, action) => {
             }
         }
         case 'endCodemakerTurn': {
-            debugger;
             const res = (isOneplayer) ? [...CodemakerHist, table.getCodemakerplay(CodebreakerHist[CodebreakerHist.length - 1], Secret)] : [...CodemakerHist, Codemakerchecked]
             return {
                 ...state, ...actionstate, CodemakerHist: res, Codemakerchecked: ["", "", "", ""]
