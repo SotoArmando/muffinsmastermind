@@ -26,6 +26,7 @@ Live https://muffinsmastermind.herokuapp.com/
 - ES6
 - React-Test
 - Redux
+- Babel
 
 ## Author
 
