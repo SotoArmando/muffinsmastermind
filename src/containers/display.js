@@ -15,10 +15,7 @@ function Display(props) {
         isPlayer1Turn,
         Turn } = props;
 
-
-
     const handleClick = (type) => {
-
         operator(type);
     }
 
@@ -41,13 +38,15 @@ function Display(props) {
                     </div>
                 </div>
             </div>
+            <div className="col centered">
+                <div className={"row centered shorten1024 after0 " + (isActiveGame ? "" : "inactive")}>
+                    <Codebreakerdisplay isActiveGame={isActiveGame} turn={Turn} handleClick={handleClick} />
+                </div>
+                <div className={"row centered shorten1024 " + (isActiveGame ? "" : "inactive")}>
+                    <Codemakerdisplay isActiveGame={isActiveGame} turn={Turn} handleClick={handleClick} />
+                </div>
+            </div>
 
-            <div className={"row centered shorten1024 after0 " + (isActiveGame ? "" : "inactive")}>
-                <Codebreakerdisplay isActiveGame={isActiveGame} turn={Turn} handleClick={handleClick} />
-            </div>
-            <div className={"row centered shorten1024 " + (isActiveGame ? "" : "inactive")}>
-                <Codemakerdisplay isActiveGame={isActiveGame} turn={Turn} handleClick={handleClick} />
-            </div>
 
             <Bottomnavigationbar handleClick={handleClick} />
         </div>
@@ -56,8 +55,6 @@ function Display(props) {
 
 const mapStateToProps = (state) => {
     const { Turn, Secret, CodebreakerHist } = state.mastermind;
-
-
     return {
         isActiveGame: (Turn >= 0),
         isThereWinner: ((CodebreakerHist.length === 0) ? false : (CodebreakerHist[CodebreakerHist.length - 1].join("") === Secret.join(""))),
