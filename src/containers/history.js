@@ -6,17 +6,15 @@ function History(props) {
     const { handleClick, mastermindhistory } = props;
     return <div className="Tablehistory" onClick={() => handleClick("TOGGLE_CASE_GAMEHIST")}>
         { mastermindhistory.map((e,i) => 
-        <pre key={e,i}>
+        <pre className="historyline" key={e,i}>
             {JSON.stringify(mastermindhistory, undefined, 4)}
         </pre>)}
     </div>
 }
 
-
 const mapStateToProps = (state) => {
     return { mastermindhistory: state.mastermindhistory }
 };
-
 
 History.propTypes = {
     handleClick: PropTypes.func.isRequired,

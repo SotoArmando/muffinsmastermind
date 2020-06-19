@@ -15,13 +15,11 @@ function Display(props) {
         isPlayer1Turn,
         Turn } = props;
 
-    const handleClick = (type) => {
-        operator(type);
-    }
+    const handleClick = (type) => operator(type);
+        
 
-    return (
-        <div className="Table">
-            <Prompter isThereWinner={isThereWinner} isActiveGame={isActiveGame} handleClick={handleClick} />
+    return <div className="Table">
+            <Prompter isThereWinner={isThereWinner} handleClick={handleClick} />
 
             <div className="row centered">
                 <div className="col col0" >
@@ -46,11 +44,9 @@ function Display(props) {
                     <Codemakerdisplay isActiveGame={isActiveGame} turn={Turn} handleClick={handleClick} />
                 </div>
             </div>
-
-
             <Bottomnavigationbar handleClick={handleClick} />
         </div>
-    );
+    ;
 }
 
 const mapStateToProps = (state) => {
@@ -66,11 +62,10 @@ const mapStateToProps = (state) => {
 
 
 Display.propTypes = {
-    CodemakerHist: PropTypes.array.isRequired,
-    Turn: PropTypes.number.isRequired,
     isActiveGame: PropTypes.bool.isRequired,
     isThereWinner: PropTypes.bool.isRequired,
-    isPlayer1Turn: PropTypes.bool.isRequired
+    isPlayer1Turn: PropTypes.bool.isRequired,
+    Turn: PropTypes.number.isRequired,
 };
 
 

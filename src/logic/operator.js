@@ -1,35 +1,35 @@
-export default function operator(type) {
-    
+export default function operator(type, container = null) {
+    const doc = container || document;
     switch (type) {
         case ("TOGGLE_CASE_GAMEWIN"): {
-            document.querySelector("div.Winner").classList.toggle("active");
+            doc.querySelector("div.Winner").classList.toggle("active");
             break;
         }
         case ("TOGGLE_CASE_GAMEHIST"): {
-            document.querySelector("div.Tablehistory").classList.toggle("active");
+            doc.querySelector("div.Tablehistory").classList.toggle("active");
             break;
         }
         case ("TOGGLE_CASE_GAMESETUPQUESTIONS"): {
-            document.querySelector("div.Playersquestion").classList.toggle("displayed");
-            document.querySelector("div.Playersquestion").classList.toggle("active");
-            document.querySelector("div.Playerssecondquestion").classList.toggle("displayed");
-            document.querySelector("div.Playerssecondquestion").classList.toggle("active");
+            doc.querySelector("div.Playersquestion").classList.toggle("displayed");
+            doc.querySelector("div.Playersquestion").classList.toggle("active");
+            doc.querySelector("div.Playerssecondquestion").classList.toggle("displayed");
+            doc.querySelector("div.Playerssecondquestion").classList.toggle("active");
             break;
         }
         case ("TOGGLE_CASE_GAMESETUP"): {
-            document.querySelector("div.Setupform").classList.toggle("active");
+            doc.querySelector("div.Setupform").classList.toggle("active");
             break;
         }
         case ("TOGGLE_CASE_FORMSETUPSECRET"): {
-            document.querySelector("div.Secretcodesetup").classList.toggle("active")
+            doc.querySelector("div.Secretcodesetup").classList.toggle("active")
             break;
         }
         case ("TOGGLE_CASE_FORMCODEBREAKERINPUT"): {
-            document.querySelector("div.Ansform").classList.toggle('active')
+            doc.querySelector("div.Ansform").classList.toggle('active')
             break;
         }
         case ("TOGGLE_CASE_FORMCODEMAKERINPUT"): {
-            document.querySelector("div.Askform").classList.toggle('active')
+            doc.querySelector("div.Askform").classList.toggle('active')
             break;
         }
 
