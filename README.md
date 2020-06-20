@@ -11,11 +11,6 @@ Muffin Mastermind is a good way for me to improve my features done in REACT.
 - Solo play
 - Friend vs Friend play :D. 
 - Round History
-  
-  ## Prerequisites
-
-> Ruby: 2.6.3
-> Rails: 6.0.1
 
 ## How to run the test suite
 
