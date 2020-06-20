@@ -48,7 +48,7 @@ Live https://muffinsmastermind.herokuapp.com/
 
 ## Screenshots
 
-| First Header  | Second Header |
+|   |  |
 | ------------- | ------------- |
 | <img src="./doc/pic/pic2.png" width="350"/>  | <img src="./doc/pic/pic3.png" width="350"/> |
 | <img src="./doc/pic/pic4.png" width="350"/>  | <img src="./doc/pic/pic1.png" width="350"/>  |
