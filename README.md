@@ -1,4 +1,4 @@
-# MuffinsMastermind!
+# MuffinsMastermind! [![npm](https://img.shields.io/npm/dw/jest-coverage-badges.svg)](https://www.npmjs.com/package/jest-coverage-badges)
 
 | Statements | Branches | Functions | Lines | Build Status |
 | -----------|----------|-----------|-------| ------------ |
