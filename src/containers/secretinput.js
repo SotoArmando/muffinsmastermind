@@ -31,7 +31,7 @@ function Secretinput(props) {
 
     return (
         <div className="Secretcodesetup">
-            <div className="row centered">
+            <div className="row centered display">
                 {returnSecretdisplay()}
             </div>
             <div className="row centered">
@@ -62,7 +62,6 @@ Secretinput.propTypes = {
 
 const mapDispatchToProps = dispatch => ({
     tap_codemakersecret: color => dispatch({ type: 'tap_codemakersecret', color: color }),
-    tap_codebreakerchecked: color => dispatch({ type: 'tap_codebreakerchecked', color: color }),
     beginGame: () => dispatch({ type: 'UPDATE', actionstate: { Turn: 0 } }),
 });
 

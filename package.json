@@ -19,7 +19,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --coverage --watchAll=false",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "make-badges": "npm run jest-badges-readme"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -37,6 +38,7 @@
     ]
   },
   "devDependencies": {
+    "@olavoparno/jest-badges-readme": "^1.4.1",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-plugin-react": "^7.20.0",
     "nyc": "^15.1.0",
