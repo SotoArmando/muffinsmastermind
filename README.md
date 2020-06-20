@@ -12,7 +12,19 @@ Muffin Mastermind is a good way for me to improve my features done in REACT.
 - Friend vs Friend play :D. 
 - Round History
   
-## Instructions
+  ## Prerequisites
+
+> Ruby: 2.6.3
+> Rails: 6.0.1
+
+## How to run the test suite
+
+- run test:
+  > `npm run test`
+- view test coverage:
+  > `npm run test:coverage`
+
+## Instructions (Development)
 Open a Terminal (CMD) and type the following: 
 
 1. git clone https://github.com/SotoArmando/muffinsmastermind
@@ -20,6 +32,7 @@ Open a Terminal (CMD) and type the following:
 3. npm install
 4. npm start 
 
+- Clone the repo and run the app.
 Live https://muffinsmastermind.herokuapp.com/
 
 ## Built With
