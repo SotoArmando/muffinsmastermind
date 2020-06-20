@@ -12,13 +12,6 @@ Muffin Mastermind is a good way for me to improve my features done in REACT.
 - Friend vs Friend play :D. 
 - Round History
 
-## How to run the test suite
-
-- run test:
-  > `npm run test`
-- view test coverage:
-  > `npm run test:coverage`
-
 ## Instructions (Development)
 Open a Terminal (CMD) and type the following: 
 
@@ -29,6 +22,14 @@ Open a Terminal (CMD) and type the following:
 
 - Clone the repo and run the app.
 Live https://muffinsmastermind.herokuapp.com/
+
+## How to run the test suite
+
+- run test:
+  > `npm run test`
+- view test coverage:
+  > `npm run test:coverage`
+
 
 ## Built With
 
