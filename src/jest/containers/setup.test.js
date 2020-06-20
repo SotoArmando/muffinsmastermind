@@ -44,7 +44,7 @@ const createContainer = (initialstate) => {
 test('Click close should close the Setup form', () => {
     const { render, store } = createContainer({ ...defaultstate });
     const { container } = render;
-    container.querySelector("div.Table span.status").click()
+    operator("TOGGLE_CASE_GAMESETUP", container);
     container.querySelector(close).click();
     expect(container.querySelector(".Setupform.active")).not.toBeInTheDocument;
 });

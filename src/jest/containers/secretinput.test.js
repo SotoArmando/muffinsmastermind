@@ -26,7 +26,7 @@ const defaultstate = {
 const Close = ".Secretcodesetup .close"
 
 const createContainer = (initialstate) => {
-    const store = createStore(rootReducer, { mastermind: initialstate });
+    const store = createStore(rootReducer, { mastermind: initialstate, mastermindhistory: [{ ...defaultstate }] });
     return {
         render: {
             ...render(
@@ -49,7 +49,7 @@ test('Should be one history line registered', () => {
 test('Should be opened Tablehistorydiv', () => {
     const { render } = createContainer({ ...defaultstate });
     const { container } = render;
-    container.querySelector(Tablehistorydiv).click();
+    container.querySelector("div.Statustable span.status0").click();
     expect(container.querySelector("div.Tablehistory.active")).toBeInTheDocument();
 });
 

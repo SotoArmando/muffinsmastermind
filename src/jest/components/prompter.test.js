@@ -8,24 +8,22 @@ import rootReducer from '../../reducers/index';
 import App from '../../App';
 import operator from '../../logic/operator';
 
+
 const defaultstate = {
     CodemakerHist: [],
-    CodebreakerHist: [],
+    CodebreakerHist: [["red", "red", "red", "red"]],
     CodemakerTarget: 0,
     CodebreakerTarget: 0,
     isPlayer1turn: true,
     isOneplayer: true,
-    Turn: -1,
-    Codebreakerchecked: ["", "", "", ""],
+    Turn: 1,
+    Codebreakerchecked: ["red", "red", "red", "red"],
     Codemakerchecked: ["", "", "", ""],
     Secret: [],
-    isActiveGame: false,
-    isThereWinner: false
+    isActiveGame: true,
+    isThereWinner: true
 }
 
-const playerquestion1options = "div.Setupform div.Playersquestion .option"
-const playerquestion2options = "div.Setupform div.Playerssecondquestion .option"
-const close = "div.Setupform > span.Close"
 
 const createContainer = (initialstate) => {
     const store = createStore(rootReducer, { mastermind: initialstate });
@@ -44,41 +42,7 @@ const createContainer = (initialstate) => {
 test('Click close should close the Setup form', () => {
     const { render, store } = createContainer({ ...defaultstate });
     const { container } = render;
-    container.querySelector("div.Table span.status").click()
-    container.querySelector(close).click();
-    expect(container.querySelector(".Setupform.active")).not.toBeInTheDocument;
+    container.querySelector("div.Statustable span.status0").click();
+    expect(container.querySelector("div.Tablehistory.active")).toBeInTheDocument;
 });
-
-test('Should create the Secret', () => {
-    const { render, store } = createContainer({ ...defaultstate });
-    const { container } = render;
-    operator("TOGGLE_CASE_GAMESETUP", container);
-    container.querySelectorAll(playerquestion1options)[1].click();
-    expect(container.querySelector("div.Playerssecondquestion.active")).toBeInTheDocument;
-});
-
-test('Should ask Player 2 to create a Secret', () => {
-    const { render, store } = createContainer({ ...defaultstate });
-    const { container } = render;
-    operator("TOGGLE_CASE_GAMESETUP", container);
-    container.querySelectorAll(playerquestion1options)[0].click();
-    expect(container.querySelector("div.Playerssecondquestion.active")).toBeInTheDocument;
-});
-
-test('Should select role Codebreaker', () => {
-    const { render, store } = createContainer({ ...defaultstate });
-    const { container } = render;
-    operator("TOGGLE_CASE_GAMESETUP", container);
-    container.querySelectorAll(playerquestion2options)[1].click();
-    expect(container.querySelector("div.Secretcodesetup.active")).toBeInTheDocument;
-});
-
-test('Should select role Codemaker', () => {
-    const { render, store } = createContainer({ ...defaultstate });
-    const { container } = render;
-    operator("TOGGLE_CASE_GAMESETUP", container);
-    container.querySelectorAll(playerquestion2options)[0].click();
-    expect(container.querySelector("div.Secretcodesetup.active")).toBeInTheDocument;
-});
-
 

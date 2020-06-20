@@ -8,14 +8,15 @@ import rootReducer from '../../reducers/index';
 import App from '../../App';
 import operator from '../../logic/operator';
 
+
 const defaultstate = {
-    CodemakerHist: [],
+    CodemakerHist: [["red", "red", "red", "red"]],
     CodebreakerHist: [["red", "red", "red", "red"]],
     CodemakerTarget: 0,
     CodebreakerTarget: 0,
     isPlayer1turn: true,
     isOneplayer: true,
-    Turn: 1,
+    Turn: 2,
     Codebreakerchecked: ["red", "red", "red", "red"],
     Codemakerchecked: ["", "", "", ""],
     Secret: [],
@@ -23,7 +24,6 @@ const defaultstate = {
     isThereWinner: true
 }
 
-const playerquestion1options = "div.Setupform div.Playersquestion .option"
 
 const createContainer = (initialstate) => {
     const store = createStore(rootReducer, { mastermind: initialstate });
@@ -42,8 +42,7 @@ const createContainer = (initialstate) => {
 test('Click close should close the Setup form', () => {
     const { render, store } = createContainer({ ...defaultstate });
     const { container } = render;
-    container.querySelector("div.Table span.status").click()
-    container.querySelector(close).click();
-    expect(container.querySelector(".Setupform.active")).not.toBeInTheDocument;
+    container.querySelector("div.Statustable span.status0").click();
+    expect(container.querySelector("div.Tablehistory.active")).toBeInTheDocument;
 });
 
