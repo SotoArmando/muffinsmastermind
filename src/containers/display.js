@@ -13,10 +13,8 @@ function Display(props) {
         isActiveGame,
         isThereWinner,
         isPlayer1Turn,
+        handleClick,
         Turn } = props;
-
-    const handleClick = (type) => operator(type);
-        
 
     return <div className="Table">
             <Prompter isThereWinner={isThereWinner} handleClick={handleClick} />
@@ -56,10 +54,10 @@ const mapStateToProps = (state) => {
         isThereWinner: ((CodebreakerHist.length === 0) ? false : (CodebreakerHist[CodebreakerHist.length - 1].join("") === Secret.join(""))),
         isPlayer1Turn: (Turn % 2 === 0),
         Turn,
+        handleClick: operator,
     }
 
 };
-
 
 Display.propTypes = {
     isActiveGame: PropTypes.bool.isRequired,

@@ -9,13 +9,13 @@ function Gameover(props) {
     const isPlayer1turn = Turn % 2 === 0;
     const isPlayerready = (Codebreakerchecked.filter(e => e != "").length === 4 || (!isPlayer1turn && Codemakerchecked.filter(e => e != "").length > 0));
 
-    const handlePlayerready = () => {
+    const handlePlayerready = (Turn) => {
         rollTurns(Turn + 1, isOneplayer);
         pushTable(state);
     }
 
-    const handleReset = (reset = false) => {
-        handleClick("TOGGLE_CASE_GAMEWIN");
+    const handleReset = (reset, container) => {
+        handleClick("TOGGLE_CASE_GAMEWIN", container);
         if (reset) resetGame();
     }
 
@@ -29,11 +29,11 @@ function Gameover(props) {
                     <span>CONGRATS!</span>
                 </div>
                 <div className="row centered">
-                    <span className="span0 border0 useraction margin1" onClick={() => handleReset(true)}>Play Again</span>
+                    <span className="span0 border0 useraction margin1" onClick={(e) => handleReset(true, e.container)}>Play Again</span>
                 </div>
-                <span className="Close" onClick={handleReset}>Close</span>
+                <span className="Close" onClick={(e) => handleReset(false, e.container)}>Close</span>
             </div>
-            <div className={"isPlayerready " + (isPlayerready ? "active" : "")} onClick={handlePlayerready}>
+            <div className={"isPlayerready " + (isPlayerready ? "active" : "")} onClick={() => handlePlayerready(Turn)}>
                 <span>Done?</span>
                 <span className="status">Tap here to continue</span>
             </div>
@@ -43,7 +43,8 @@ function Gameover(props) {
 }
 
 const mapStateToProps = (state) => ({
-    state: { ...state.mastermind }
+    state: { ...state.mastermind },
+    isThereWinner: state.mastermind.isThereWinner
 });
 
 const mapDispatchtoProps = (dispatch) => ({
@@ -67,7 +68,6 @@ const mapDispatchtoProps = (dispatch) => ({
         if (isOneplayer) {
             dispatch({ type: "endCodemakerTurn", actionstate: { Turn: turn + 1 } })
         }
-
     },
 });
 
@@ -93,6 +93,5 @@ Gameover.propTypes = {
         isThereWinner: PropTypes.bool.isRequired,
     }),
 };
-
 
 export default connect(mapStateToProps, mapDispatchtoProps)(Gameover);

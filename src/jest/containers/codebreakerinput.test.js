@@ -23,8 +23,6 @@ const defaultstate = {
 }
 
 const createContainer = (initialstate) => {
-
-
     const store = createStore(rootReducer, { mastermind: initialstate });
     return render(
         <Provider store={store}>

@@ -50,8 +50,6 @@ test('Secret Should display 4 red colors ', () => {
     const { container } = render;
 
     operator("TOGGLE_CASE_FORMSETUPSECRET", container);
-    console.log(container.querySelectorAll("div.Secretcodesetup > .display > .Secretcode .red").length)
-    console.log(container.querySelector("div.Secretcodesetup > .display").innerHTML)
     expect(container.querySelectorAll("div.Secretcodesetup > .display > .Secretcode .red").length === 4).toBeTruthy();
 });
 

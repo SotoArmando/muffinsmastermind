@@ -45,7 +45,6 @@ const createContainer = (initialstate) => {
 test('Should be one history line registered', () => {
     const { render } = createContainer({ ...defaultstate });
     const { container } = render;
-    console.log(container.querySelectorAll("pre").length)
     expect(container.querySelectorAll("pre").length === 1).toBeTruthy();
 });
 
