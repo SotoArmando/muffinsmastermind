@@ -8,7 +8,6 @@ export default () => {
         },
         getCodemakerplay: (Codebreakerchecked, Secret) => {
             let result = [];
-            let countBlanks = 0;
             Codebreakerchecked.forEach((e, i) => {
                 if (e === Secret[i]) {
                     result.push("red");
