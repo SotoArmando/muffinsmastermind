@@ -65,7 +65,6 @@ describe('Codemakerinput', () => {
                 </React.StrictMode>
             </Provider> 
         );
-        props = wrapper.props().children.props;
     });
 
     test('Should close Ansform', () => {
