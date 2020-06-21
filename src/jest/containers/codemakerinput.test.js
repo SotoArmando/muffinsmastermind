@@ -3,13 +3,12 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import rootReducer from '../../reducers/index';
 import App from '../../App';
 import operator from '../../logic/operator';
-import Codemakerinput from '../../containers/codemakerinput';
 import configureMockStore from 'redux-mock-store';
-import { shallow, mount } from 'enzyme';
+import {  mount } from 'enzyme';
 import "../test-config";
 const mockStore = configureMockStore();
 
@@ -54,7 +53,7 @@ test('Tap color white: player 2 is able to tap color red', () => {
 
 
 describe('Codemakerinput', () => {
-    let wrapper, store, props;
+    let wrapper, store;
 
     beforeEach(() => {
         store = mockStore({ mastermind: defaultstate, mastermindhistory: [] });

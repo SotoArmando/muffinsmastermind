@@ -1,8 +1,7 @@
 /* eslint no-undef: 0  react/jsx-filename-extension: 0 */
 import React from 'react';
 import App from '../../App';
-import operator from '../../logic/operator.js'
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import rootReducer from '../../reducers/index';
@@ -22,7 +21,7 @@ const createContainer = () => {
 }
 
 test('Should dispatch Update', () => {
-    const { container, store } = createContainer();
+    const { store } = createContainer();
     const next = {
         CodemakerHist: [["red", "red", "red", "red"]],
         CodebreakerHist: [["red", "red", "red", "red"]],
@@ -45,7 +44,7 @@ test('Should dispatch Update', () => {
 
 
 test('Should dispatch tap_codemakersecret', () => {
-    const { container, store } = createContainer();
+    const { store } = createContainer();
 
     store.dispatch({ type: 'tap_codemakersecret', color: "red" })
     const { mastermind: { Secret } } = store.getState();
@@ -53,7 +52,7 @@ test('Should dispatch tap_codemakersecret', () => {
 });
 
 test('Should dispatch tap_codebreakerchecked', () => {
-    const { container, store } = createContainer();
+    const { store } = createContainer();
 
     store.dispatch({ type: 'tap_codebreakerchecked', color: "red" })
     const { mastermind: { Codebreakerchecked } } = store.getState();
@@ -61,7 +60,7 @@ test('Should dispatch tap_codebreakerchecked', () => {
 });
 
 test('Should dispatch endCodebreakerTurn', () => {
-    const { container, store } = createContainer();
+    const { store } = createContainer();
 
     store.dispatch({ type: 'endCodebreakerTurn' })
     const { mastermind: { Codebreakerchecked } } = store.getState();
@@ -69,7 +68,7 @@ test('Should dispatch endCodebreakerTurn', () => {
 });
 
 test('Should dispatch endCodemakerTurn', () => {
-    const { container, store } = createContainer();
+    const { store } = createContainer();
 
     const next = {
         CodemakerHist: [["red", "red", "red", "red"]],

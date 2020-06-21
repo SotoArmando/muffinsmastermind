@@ -3,10 +3,10 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import rootReducer from '../../reducers/index';
 import App from '../../App';
-import operator from '../../logic/operator';
+
 
 
 const defaultstate = {
@@ -40,7 +40,7 @@ const createContainer = (initialstate) => {
 }
 
 test('Click close should close the Setup form', () => {
-    const { render, store } = createContainer({ ...defaultstate });
+    const { render } = createContainer({ ...defaultstate });
     const { container } = render;
     container.querySelector("div.Statustable span.status0").click();
     expect(container.querySelector("div.Tablehistory.active")).toBeInTheDocument;

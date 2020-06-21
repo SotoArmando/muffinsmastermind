@@ -1,37 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
-// CodemakerHist: [],
-// CodebreakerHist: [],
-// CodemakerTarget: 0,
-// CodebreakerTarget: 0,
-// isPlayer1turn: true,
-// isOneplayer: true,
-// Turn: -1,
-// Codebreakerchecked: ["", "", "", ""],
-// Codemakerchecked: ["", "", "", ""],
-// Secret: [],
-// isActiveGame: false,
-// isThereWinner: false
+import uniqid from 'uniqid'
 
 function History(props) {
     const { handleClick, mastermindhistory } = props;
-    debugger;
     return <div className="Tablehistory" onClick={() => handleClick("TOGGLE_CASE_GAMEHIST")}>
         {mastermindhistory.map((e, i) =>
             <pre className="historyline" key={e, i}>
 
                 {(e.Turn % 2 === 1) ?
-                    <div class="line">
+                    <div   className="line">
                         <span>Codemaker (Player 2) played</span>
-                        <div className="row centered">{e.Codemakerchecked.map(e => <div className={"ball mini " + e}></div>)}</div>
+                        <div className="row centered">{e.Codemakerchecked.map(e => <div key={uniqid()} className={"ball mini " + e}></div>)}</div>
                     </div> :
-                    <div class="line">
+                    <div  className="line">
                         <span>Codebreaker (Player 1) played</span>
                         <div className="row centered">{e.Codebreakerchecked.map(e => {
-                            debugger;
-                            return <div className={"ball mini " + e}></div>
+                            return <div key={uniqid()} className={"ball mini " + e}></div>
                         })}</div>
                     </div>}
 

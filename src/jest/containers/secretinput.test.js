@@ -3,7 +3,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import rootReducer from '../../reducers/index';
 import App from '../../App';
 import operator from '../../logic/operator';

@@ -64,6 +64,7 @@ Display.propTypes = {
     isThereWinner: PropTypes.bool.isRequired,
     isPlayer1Turn: PropTypes.bool.isRequired,
     Turn: PropTypes.number.isRequired,
+    handleClick: PropTypes.func.isRequired,
 };
 
 

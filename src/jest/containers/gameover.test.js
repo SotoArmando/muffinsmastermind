@@ -2,11 +2,9 @@
 /* eslint no-undef: 0  react/jsx-filename-extension: 0 */
 import '../test-config';
 import React from 'react';
-import rootReducer from '../../reducers/index';
 import App from '../../App';
 import operator from '../../logic/operator';
 import { Provider } from 'react-redux';
-import { fireEvent } from '@testing-library/react';
 import { shallow, mount } from 'enzyme';
 import configureMockStore from 'redux-mock-store';
 import Gameover from '../../containers/gameover';
@@ -27,10 +25,6 @@ const defaultstate = {
 }
 
 const mockStore = configureMockStore();
-const rollturn = "div.Gameover div.isPlayerready"
-const TOGGLE_CASE_GAMEWIN = "div.Gameover .span0.border0.useraction.margin1"
-
-
 
 describe('Gameover', () => {
     let wrapper, store, props;

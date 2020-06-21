@@ -2,7 +2,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import rootReducer from '../../reducers/index';
 import App from '../../App';
 import operator from '../../logic/operator';
@@ -63,13 +63,13 @@ test('Tap color blue: player 1 is able to tap color yellow', () => {
 test('Tap color blue: player 1 is able to tap color black', () => {
     const { container } = createContainer({ ...defaultstate });
     operator("TOGGLE_CASE_FORMCODEBREAKERINPUT", container);
-    const element = container.querySelector(".Ansform.active .ball.black").click()
+    container.querySelector(".Ansform.active .ball.black").click()
     expect(container.querySelector(".Ansform.active")).not.toBeInTheDocument();
 });
 
 test('Tap color blue: player 1 is able to tap color white', () => {
     const { container } = createContainer({ ...defaultstate });
     operator("TOGGLE_CASE_FORMCODEBREAKERINPUT", container);
-    const element = container.querySelector(".Ansform.active .ball.white").click()
+    container.querySelector(".Ansform.active .ball.white").click()
     expect(container.querySelector(".Ansform.active")).not.toBeInTheDocument();
 });

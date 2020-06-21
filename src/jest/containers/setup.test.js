@@ -3,7 +3,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import rootReducer from '../../reducers/index';
 import App from '../../App';
 import operator from '../../logic/operator';
@@ -42,7 +42,7 @@ const createContainer = (initialstate) => {
 }
 
 test('Click close should close the Setup form', () => {
-    const { render, store } = createContainer({ ...defaultstate });
+    const { render } = createContainer({ ...defaultstate });
     const { container } = render;
     operator("TOGGLE_CASE_GAMESETUP", container);
     container.querySelector(close).click();
@@ -50,7 +50,7 @@ test('Click close should close the Setup form', () => {
 });
 
 test('Should create the Secret', () => {
-    const { render, store } = createContainer({ ...defaultstate });
+    const { render } = createContainer({ ...defaultstate });
     const { container } = render;
     operator("TOGGLE_CASE_GAMESETUP", container);
     container.querySelectorAll(playerquestion1options)[1].click();
@@ -58,7 +58,7 @@ test('Should create the Secret', () => {
 });
 
 test('Should ask Player 2 to create a Secret', () => {
-    const { render, store } = createContainer({ ...defaultstate });
+    const { render } = createContainer({ ...defaultstate });
     const { container } = render;
     operator("TOGGLE_CASE_GAMESETUP", container);
     container.querySelectorAll(playerquestion1options)[0].click();
@@ -66,7 +66,7 @@ test('Should ask Player 2 to create a Secret', () => {
 });
 
 test('Should select role Codebreaker', () => {
-    const { render, store } = createContainer({ ...defaultstate });
+    const { render } = createContainer({ ...defaultstate });
     const { container } = render;
     operator("TOGGLE_CASE_GAMESETUP", container);
     container.querySelectorAll(playerquestion2options)[1].click();
@@ -74,7 +74,7 @@ test('Should select role Codebreaker', () => {
 });
 
 test('Should select role Codemaker', () => {
-    const { render, store } = createContainer({ ...defaultstate });
+    const { render } = createContainer({ ...defaultstate });
     const { container } = render;
     operator("TOGGLE_CASE_GAMESETUP", container);
     container.querySelectorAll(playerquestion2options)[0].click();
