@@ -3,6 +3,8 @@
 [license-url]: https://opensource.org/licenses/MIT
 [license-image]: https://img.shields.io/npm/l/make-coverage-badge.svg
 
+![Statements](https://img.shields.io/badge/Jest-94.62%25-brightgreen.svg "Make me better!")
+
 # MuffinsMastermind!   
 
 
