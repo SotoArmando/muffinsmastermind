@@ -4,6 +4,9 @@
 [license-image]: https://img.shields.io/npm/l/make-coverage-badge.svg
 
 # MuffinsMastermind!   
+
+## Jest
+
 | Statements | Branches | Functions | Lines | Build Status |
 | -----------|----------|-----------|-------| ------------ |
 | ![Statements](https://img.shields.io/badge/Coverage-96.58%25-brightgreen.svg "Make me better!") | ![Branches](https://img.shields.io/badge/Coverage-95.05%25-brightgreen.svg "Make me better!") | ![Functions](https://img.shields.io/badge/Coverage-94.62%25-brightgreen.svg "Make me better!") | ![Lines](https://img.shields.io/badge/Coverage-97.01%25-brightgreen.svg "Make me better!") | ![BuildStatus](https://img.shields.io/badge/Build-Passing-brightgreen.svg "Building Status") |
