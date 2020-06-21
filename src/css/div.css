@@ -421,6 +421,8 @@ div.playerlabel.active > span {
 
     div.Winner.active {
         pointer-events: all;
+        box-sizing: border-box;
+        padding: 10rem 0;
         opacity: 1;
         transition-duration: 357ms;
         transform: scale(1);
