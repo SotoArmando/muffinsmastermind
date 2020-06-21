@@ -25,7 +25,7 @@ const defaultstate = {
     Codemakerchecked: ["red", "red", "", ""],
     Secret: ["blue", "blue", "green", "green"],
     isActiveGame: false,
-    isThereWinner: false
+    isThereWinner: true
 }
 
 const createContainer = (initialstate) => {
@@ -64,24 +64,27 @@ describe('Codemakerinput', () => {
                 <React.StrictMode>
                     <App />
                 </React.StrictMode>
-            </Provider>
+            </Provider> 
         );
         props = wrapper.props().children.props;
     });
 
     test('Should close Ansform', () => {
-        wrapper.find("div.Askform span.Close").simulate("click", { container: wrapper.getDOMNode() })
-        expect(container.querySelector(".Askform.active")).not.toBeInTheDocument();
+        // console.log(wrapper.getDOMNode());
+        // console.log(document.body);
+        
+        wrapper.findWhere(e => e.hasClass('Askform')).findWhere(e => e.hasClass("Close")).simulate("click", { container: wrapper.getDOMNode() })
+        expect(wrapper.getDOMNode().querySelector(".Askform.active")).not.toBeInTheDocument();
     });
 
     test('Tap color red: player 2 is able to tap color white', () => {
-        wrapper.find("div.Askform span.option").simulate("click", { container: wrapper.getDOMNode() })
-        expect(container.querySelector(".Askform.active")).not.toBeInTheDocument();
+        wrapper.findWhere(e => e.hasClass('Askform')).findWhere(e => e.hasClass("option")).first().simulate("click", { container: wrapper.getDOMNode() })
+        expect(wrapper.getDOMNode().querySelector(".Askform.active")).not.toBeInTheDocument();
     });
 
     test('Tap color white: player 2 is able to tap color red', () => {
-        wrapper.find("div.Askform span.option:last-of-type").simulate("click", { container: wrapper.getDOMNode() })
-        expect(container.querySelector(".Askform.active")).not.toBeInTheDocument();
+        wrapper.findWhere(e => e.hasClass('Askform')).findWhere(e => e.hasClass("option")).last().simulate("click", { container: wrapper.getDOMNode() })
+        expect(wrapper.getDOMNode().querySelector(".Askform.active")).not.toBeInTheDocument();
     });
 });
 

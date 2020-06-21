@@ -44,7 +44,6 @@ function Gameover(props) {
 
 const mapStateToProps = (state) => ({
     state: { ...state.mastermind },
-    isThereWinner: state.mastermind.isThereWinner
 });
 
 const mapDispatchtoProps = (dispatch) => ({

@@ -39,7 +39,7 @@ describe('Gameover', () => {
         store = mockStore({ mastermind: defaultstate, mastermindhistory: [] });
         // Shallow render the container passing in the mock store
         wrapper = shallow(
-            <Gameover store={store} handleClick={operator} />
+            <Gameover store={store} handleClick={operator} isThereWinner={false} />
         );
         props = wrapper.props().children.props;
     });
@@ -50,13 +50,19 @@ describe('Gameover', () => {
     });
 
     it('should push the actual state to history', () => {
+        store = mockStore({ mastermind: { ...defaultstate, isThereWinner: false } });
+        // Shallow render the container passing in the mock store
+        wrapper = shallow(
+            <Gameover store={store} handleClick={operator} isThereWinner={true} />
+        );
+        props = wrapper.props().children.props;
         expect(props.isThereWinner).toBe(true);
     });
     it('should push the actual state to history', () => {
         store = mockStore({ mastermind: { ...defaultstate, isThereWinner: false } });
         // Shallow render the container passing in the mock store
         wrapper = shallow(
-            <Gameover store={store} handleClick={operator} />
+            <Gameover store={store} handleClick={operator} isThereWinner={false} />
         );
         props = wrapper.props().children.props;
         expect(props.isThereWinner).toBe(false);
