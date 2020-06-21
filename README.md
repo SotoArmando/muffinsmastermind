@@ -5,7 +5,7 @@
 
 # MuffinsMastermind!   
 
-## Jest Report
+## Jest Code coverage Report
 
 | Statements | Branches | Functions | Lines | Build Status |
 | -----------|----------|-----------|-------| ------------ |
