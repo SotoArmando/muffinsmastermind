@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import table from '../logic/table'
 
 function Gameover(props) {
 
@@ -12,6 +13,12 @@ function Gameover(props) {
     const handlePlayerready = (Turn) => {
         rollTurns(Turn + 1, isOneplayer);
         pushTable(state);
+        if (isOneplayer) {
+            const { CodemakerHist, CodebreakerHist, Secret } = state;
+            const nplay = table().getCodemakerplay(Codebreakerchecked, Secret);
+            pushTable({ ...state, Turn: Turn + 1, CodemakerHist: [...CodemakerHist, nplay], CodebreakerHist: [...CodebreakerHist, Codebreakerchecked], Codemakerchecked: nplay });
+        }
+
     }
 
     const handleReset = (reset, container) => {
