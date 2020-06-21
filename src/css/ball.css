@@ -3,6 +3,11 @@ div.ball {
     min-width: 5rem;
     border-radius: 10rem;
 }
+div.ball.mini {
+    min-height: 1rem;
+    min-width: 1rem;
+    border-radius: 10rem;
+}
 
 div.ball.red {
     background-color: red;

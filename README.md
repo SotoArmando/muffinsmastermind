@@ -1,10 +1,21 @@
-# MuffinsMastermind!
+[![License][license-image]][license-url]
+
+
+[license-url]: https://opensource.org/licenses/MIT
+[license-image]: https://img.shields.io/npm/l/make-coverage-badge.svg
+
+![Statements](https://img.shields.io/badge/Jest-94.62%25-brightgreen.svg "Make me better!")
+
+# MuffinsMastermind!   
+
 
 | Statements | Branches | Functions | Lines | Build Status |
 | -----------|----------|-----------|-------| ------------ |
-| ![Statements](https://img.shields.io/badge/Coverage-81%25-brightgreen.svg "Make me better!") | ![Branches](https://img.shields.io/badge/Coverage-69%25-brightgreen.svg "Make me better!") | ![Functions](https://img.shields.io/badge/Coverage-79%25-brightgreen.svg "Make me better!") | ![Lines](https://img.shields.io/badge/Coverage-80%25-brightgreen.svg "Make me better!") | ![BuildStatus](https://img.shields.io/badge/Build-Passing-brightgreen.svg "Building Status") |
+| ![Statements](https://img.shields.io/badge/Coverage-96.58%25-brightgreen.svg "Make me better!") | ![Branches](https://img.shields.io/badge/Coverage-95.05%25-brightgreen.svg "Make me better!") | ![Functions](https://img.shields.io/badge/Coverage-94.62%25-brightgreen.svg "Make me better!") | ![Lines](https://img.shields.io/badge/Coverage-97.01%25-brightgreen.svg "Make me better!") | ![BuildStatus](https://img.shields.io/badge/Build-Passing-brightgreen.svg "Building Status") |
 
-Muffin Mastermind is a good way for me to improve my features done in REACT.
+Muffin Mastermind is a good way for me to improve my features done in React js.
+One player becomes the codemaker, the other the codebreaker. The codemaker chooses a pattern of four code pegs. Duplicates and blanks are allowed depending on player choice, so the player could even choose four code pegs of the same color or four blanks.
+
 
 ## Features
 
@@ -12,8 +23,8 @@ Muffin Mastermind is a good way for me to improve my features done in REACT.
 - Solo play
 - Friend vs Friend play :D. 
 - Round History
-  
-## Instructions
+
+## Instructions (Development)
 Open a Terminal (CMD) and type the following: 
 
 1. git clone https://github.com/SotoArmando/muffinsmastermind
@@ -21,7 +32,16 @@ Open a Terminal (CMD) and type the following:
 3. npm install
 4. npm start 
 
+- Clone the repo and run the app.
 Live https://muffinsmastermind.herokuapp.com/
+
+## How to run the test suite
+
+- run test:
+  > `npm run test`
+- view test coverage:
+  > `npm run test:coverage`
+
 
 ## Built With
 
@@ -31,6 +51,16 @@ Live https://muffinsmastermind.herokuapp.com/
 - React-Test
 - Redux
 - Babel
+
+## Screenshots
+
+|  |  |
+| ------------- | ------------- |
+| <img src="./doc/pic/pic2.png" width="350"/>  | <img src="./doc/pic/pic3.png" width="350"/> |
+| <img src="./doc/pic/pic4.png" width="350"/>  | <img src="./doc/pic/pic1.png" width="350"/>  |
+
+
+
 
 ## Author
 
