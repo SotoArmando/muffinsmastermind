@@ -1,5 +1,6 @@
 [![License][license-image]][license-url]
 
+
 [license-url]: https://opensource.org/licenses/MIT
 [license-image]: https://img.shields.io/npm/l/make-coverage-badge.svg
 
@@ -14,6 +15,7 @@
 
 Muffin Mastermind is a good way for me to improve my features done in React js.
 One player becomes the codemaker, the other the codebreaker. The codemaker chooses a pattern of four code pegs. Duplicates and blanks are allowed depending on player choice, so the player could even choose four code pegs of the same color or four blanks.
+
 
 ## Features
 
