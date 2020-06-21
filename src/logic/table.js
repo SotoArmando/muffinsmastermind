@@ -15,10 +15,9 @@ export default () => {
                 } else if (Secret.indexOf(e) != -1) {
                     result.push("white");
                 } else {
-                    countBlanks += 1;
+                    result.push("")
                 }
             });
-            for (let i = 0; i < countBlanks; i++) { result.push("") }
             return result;
         }
     }
