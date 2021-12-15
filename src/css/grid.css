@@ -15,7 +15,9 @@ div.col {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100%;
 }
+
 
 div.col.col0 {
     width: 100%;
