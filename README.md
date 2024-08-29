@@ -16,6 +16,9 @@
 Muffin Mastermind is a good way for me to improve my features done in React js.
 One player becomes the codemaker, the other the codebreaker. The codemaker chooses a pattern of four code pegs. Duplicates and blanks are allowed depending on player choice, so the player could even choose four code pegs of the same color or four blanks.
 
+## Requirements
+
+- NodeJs v10
 
 ## Features
 
