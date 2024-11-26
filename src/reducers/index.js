@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
-import table from './table';
+import { mastermindhistory, mastermind } from './mastermind';
 
 
 const rootReducer = combineReducers({
-    table,
+    mastermindhistory,
+    mastermind
 });
 
 
